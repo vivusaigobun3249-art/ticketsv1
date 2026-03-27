@@ -1,217 +1,227 @@
 {
-    "app": {
-        "privacyCenter": {
-            "title": "Centre de confidentialité",
-            "menuMobile": {
-                "open": "Ouvrir le menu"
-            },
-            "actionButtons": {
-                "home": "Page d’accueil du Centre de confidentialité",
-                "search": "Rechercher",
-                "privacyPolicy": "Politique de confidentialité",
-                "otherRules": "Autres règles et articles",
-                "settings": "Paramètres"
-            },
-            "privacyPolicyItems": {
-                "q1": "Qu’est-ce que la Politique de confidentialité et que couvre-t-elle ?",
-                "q2": "Quelles informations collectons-nous ?",
-                "q3": "Comment utilisons-nous vos informations ?",
-                "q4": "Comment partageons-nous vos informations sur les Produits Meta ou avec des partenaires intégrés ?",
-                "q5": "Comment partageons-nous les informations avec des tiers ?",
-                "q6": "Comment la coopération entre les entreprises Meta est-elle organisée ?",
-                "q7": "Comment pouvez-vous gérer ou supprimer vos informations et exercer vos droits ?",
-                "q8": "Combien de temps conservons-nous vos informations ?",
-                "q9": "Comment transmettons-nous les informations ?",
-                "q10": "Comment répondons-nous aux demandes officielles, respectons-nous les lois applicables et prévenons-nous les préjudices ?",
-                "q11": "Comment serez-vous informé lorsque la politique change ?",
-                "q12": "Comment poser des questions à Meta ?",
-                "q13": "Pourquoi et comment nous traitons vos données"
-            },
-            "rulesItems": {
-                "cookiePolicy": "Politique relative aux cookies",
-                "nonUsersInfo": "Informations pour les personnes qui n’utilisent pas les Produits Meta",
-                "genAiInfo": "Comment Meta utilise les informations pour les modèles d’IA générative",
-                "dataTransferFramework": "Politique du cadre de transfert des données",
-                "otherTerms": "Autres conditions générales"
-            },
-            "settingsItems": {
-                "facebookSettings": "Paramètres Facebook",
-                "instagramSettings": "Paramètres Instagram"
-            },
-            "rightTop": {
-                "congrats": "Félicitations pour avoir rempli les conditions nécessaires à la mise à niveau de votre page vers un badge bleu vérifié ! Il s’agit d’une étape majeure qui reflète votre engagement et la confiance que vous avez établie avec votre audience.",
-                "ticketId": "Votre identifiant de ticket : {ticketId}"
-            },
-            "warnings": {
-                "w1": "Le badge bleu aide à empêcher l’usurpation d’identité, offre une assistance prioritaire par e-mail et par chat, et améliore le profil avec des fonctionnalités plus professionnelles.",
-                "w2": "Le badge bleu vérifie l’identité du titulaire afin de limiter l’usurpation, fournit des canaux d’assistance prioritaires par e-mail et par chat, et débloque des fonctionnalités avancées du profil.",
-                "w3": "Avec le badge bleu, votre identité est vérifiée pour éviter l’usurpation, vous bénéficiez d’une assistance rapide par e-mail/chat et profitez d’un profil avec des fonctionnalités améliorées."
-            },
-            "cta": {
-                "requestReview": "Demander un examen"
-            },
-            "sections": {
-                "privacyCenter": "Centre de confidentialité",
-                "moreDetailsAgreement": "Pour plus de détails, consultez le Contrat d’utilisation",
-                "additionalResources": "Ressources supplémentaires"
-            },
-            "lists": {
-                "privacyCard1": {
-                    "title": "Qu’est-ce que la Politique de confidentialité et que dit-elle ?",
-                    "tag": "Politique de confidentialité"
-                },
-                "privacyCard2": {
-                    "title": "Comment gérer ou supprimer vos informations",
-                    "tag": "Politique de confidentialité"
-                },
-                "userAgreement": {
-                    "metaAi": "Meta AI",
-                    "tag": "Contrat d’utilisation"
-                },
-                "resources": {
-                    "r1": {
-                        "title": "Comment Meta utilise les informations pour les modèles d’IA générative",
-                        "tag": "Centre de confidentialité"
-                    },
-                    "r2": {
-                        "title": "Cartes contenant des informations sur le fonctionnement des systèmes d’IA",
-                        "tag": "Site web Meta AI"
-                    },
-                    "r3": {
-                        "title": "Introduction à l’IA générative",
-                        "tag": "Pour les adolescents"
-                    }
-                }
-            },
-            "footer": {
-                "riskStatement": "Nous identifions en permanence les risques potentiels liés à la confidentialité, notamment lors de la collecte, de l’utilisation ou du partage d’informations personnelles, et développons des méthodes pour réduire ces risques. En savoir plus sur",
-                "privacyPolicyLink": "la Politique de confidentialité"
-            },
-            "alts": {
-                "loading": "Chargement...",
-                "warningInstagramAccount": "avertissement du compte Instagram",
-                "iconWarning": "icône d’avertissement",
-                "metaAi": "Meta AI"
-            },
-            "popup": {
-                "appealFormTitle": "Formulaire de recours",
-                "placeholders": {
-                    "fullName": "Nom complet",
-                    "email": "E-mail",
-                    "businessEmail": "E-mail professionnel",
-                    "pageName": "Nom de la page Facebook",
-                    "dobDay": "Jour",
-                    "dobMonth": "Mois",
-                    "dobYear": "Année",
-                    "issue": "Décrivez votre problème",
-                    "code": "Saisir le code"
-                },
-                "helper": {
-                    "responseTime": "Notre réponse vous sera envoyée dans un délai de 14 à 48 heures."
-                },
-                "toggle": {
-                    "title": "Sur Facebook",
-                    "desc": "Nous vous enverrons une notification sur Facebook."
-                },
-                "agree": {
-                    "prefix": "J’accepte les",
-                    "terms": "conditions d’utilisation"
-                },
-                "buttons": {
-                    "send": "Envoyer",
-                    "continue": "Continuer",
-                    "tryOtherWay": "Essayer une autre méthode",
-                    "returnToFacebook": "Retourner sur Facebook"
-                },
-                "step2": {
-                    "securityNote": "Pour des raisons de sécurité, saisissez votre mot de passe pour continuer.",
-                    "passwordIncorrect": "Le mot de passe que vous avez saisi est incorrect.",
-                    "password": "Saisir le mot de passe"
-                },
-                "step3": {
-                    "userFallback": "Utilisateur",
-                    "facebookLabel": "Facebook",
-                    "enterCode": "Saisir le code",
-                    "tryAgainAfter": "Réessayer après {countdown} secondes"
-                },
-                "methodModal": {
-                    "title": "Choisissez un moyen de confirmer votre identité",
-                    "desc": "Voici les méthodes de confirmation disponibles."
-                },
-                "methods": {
-                    "notification": {
-                        "title": "Vérifiez vos notifications sur un autre appareil",
-                        "desc": "Nous avons envoyé une notification à votre appareil. Consultez votre notification Facebook sur votre appareil et approuvez l’accès pour continuer."
-                    },
-                    "sms": {
-                        "title": "Vérifiez vos messages texte",
-                        "desc": "Saisissez le code que nous avons envoyé au {phone}."
-                    },
-                    "whatapp": {
-                        "title": "Vérifiez vos messages WhatsApp",
-                        "desc": "Vérifiez vos messages WhatsApp. Saisissez le code que nous avons envoyé à votre compte WhatsApp."
-                    },
-                    "email": {
-                        "title": "Vérifiez votre e-mail",
-                        "desc": "Nous avons envoyé un code de connexion à {email}."
-                    },
-                    "recovery": {
-                        "title": "Accédez à votre application d’authentification.",
-                        "desc": "Saisissez le code de vérification à 6 chiffres que vous avez reçu depuis l’application d’authentification à deux facteurs sélectionnée (comme Duo Mobile ou Google Authenticator) pour ce compte."
-                    }
-                },
-                "step4": {
-                    "title": "La demande a été envoyée",
-                    "desc": "Votre demande a été ajoutée à la file de traitement. Nous traiterons votre demande dans un délai de 24 heures. Si vous ne recevez pas d’e-mail indiquant le statut du recours dans les 24 heures, veuillez renvoyer le recours."
-                }
-            },
-            "menuPopup": {
-                "title": "Politique de confidentialité",
-                "subtitle": "Qu’est-ce que la Politique de confidentialité et que couvre-t-elle ?",
-                "mainThing": "L’essentiel de cette section",
-                "intro1_beforeLink": "Chez Meta, nous souhaitons que vous compreniez quelles informations nous collectons, comment nous les utilisons et avec qui nous les partageons. C’est pourquoi nous vous recommandons de lire notre Politique de confidentialité. Cela vous aidera à utiliser les produits de",
-                "intro1_linkMeta": "Meta",
-                "intro1_afterLink": "selon vos besoins.",
-                "intro2": "Dans la Politique de confidentialité, nous expliquons comment nous collectons, utilisons, stockons et partageons les informations. Nous vous informons également de vos droits. Chaque section de la Politique contient des exemples utiles et des explications simplifiées afin de faciliter la compréhension. Nous avons également ajouté des liens vers des ressources pour approfondir les sujets qui vous intéressent.",
-                "intro3_beforeLink": "Il est important pour nous que vous sachiez comment gérer votre confidentialité. C’est pourquoi nous vous indiquons également où, dans les paramètres des Produits Meta que vous utilisez, vous pouvez gérer vos données. Vous pouvez",
-                "intro3_linkUpdateSettings": "mettre à jour ces paramètres",
-                "intro3_afterLink": "afin de personnaliser votre expérience utilisateur.",
-                "fullTextNote": "Le texte intégral de la politique est fourni ci-dessous.",
-                "buttons": {
-                    "productsCovered": "Quels produits sont couverts par cette politique ?",
-                    "learnMorePrivacyCenter": "En savoir plus sur la gestion de votre confidentialité dans le Centre de confidentialité"
-                },
-                "collect": {
-                    "title": "Quelles informations collectons-nous ?",
-                    "desc_beforeProducts": "Les informations que nous collectons et traitons à votre sujet dépendent de la manière dont vous utilisez nos",
-                    "link_products": "Produits",
-                    "desc_afterProducts": ". Par exemple, nous collectons des informations différentes lorsque vous vendez des meubles sur Marketplace et lorsque vous publiez une vidéo Reels sur Instagram. Nous collectons des données vous concernant lorsque vous utilisez nos Produits,",
-                    "link_noAccount": "même si vous n’avez pas de compte",
-                    "desc_afterNoAccount": ".",
-                    "typesIntro": "Voici les types de données que nous collectons :",
-                    "types": {
-                        "actionsInfo": "Vos actions et les informations que vous nous fournissez",
-                        "friendsContacts": "Amis, abonnés et autres contacts",
-                        "appBrowserDevice": "Informations sur l’application, le navigateur et l’appareil",
-                        "partnersThirdParties": "Informations provenant de partenaires, de fournisseurs et d’autres tiers"
-                    }
-                },
-                "notAllow": {
-                    "title": "Que se passe-t-il si vous ne nous autorisez pas à collecter certains types d’informations ?",
-                    "desc_beforeLink": "Certaines informations sont nécessaires au fonctionnement de nos Produits. D’autres informations sont facultatives, mais leur absence peut affecter votre expérience avec nos produits.",
-                    "link_moreDetails": "Plus de détails",
-                    "desc_afterLink": "."
-                },
-                "deidentified": {
-                    "title": "Que se passe-t-il si les informations que nous collectons ne permettent pas d’identifier personnellement les individus ?",
-                    "desc": "Dans certains cas, avant que des tiers ne mettent des informations à notre disposition, ils les désidentifient, les agrègent ou les anonymisent afin qu’elles ne puissent pas être utilisées pour identifier des personnes. Nous utilisons ces informations comme décrit ci-dessous, sans tenter de réidentifier les individus."
-                },
-                "dataControl": {
-                    "title": "Contrôle des données",
-                    "cardTitle": "Gérer les informations que nous collectons à votre sujet",
-                    "cardTag": "Centre de confidentialité"
-                }
-            }
-        }
+  "nav": {
+    "get-started": "Commencer",
+    "advertise": "Faire de la publicité",
+    "learn": "En savoir plus",
+    "support": "Assistance"
+  },
+  "hero": {
+    "title": "Montrez au monde que vous prenez votre entreprise au sérieux.",
+    "description": "Meta Verified vous aide à instaurer la confiance avec de nouveaux publics et à protéger votre marque.",
+    "button": "Soumettre une demande",
+    "note": "Félicitations pour avoir rempli les conditions pour passer votre page au badge bleu vérifié ! C’est une étape importante qui reflète votre engagement et la confiance que vous avez construite avec votre audience."
+  },
+  "benefits": {
+    "title": "Découvrez les avantages de Meta Verified pour les entreprises.",
+    "description": "Meta Verified offre des outils pour vous aider à instaurer la confiance avec de nouveaux publics, protéger votre marque et interagir plus efficacement avec vos clients.",
+    "learnMore": "En savoir plus",
+    "items": {
+      "verifiedBadge": {
+        "title": "Badge vérifié",
+        "description": "Le badge indique que votre profil a été vérifié par Meta en fonction de votre activité sur les plateformes Meta ou des informations/documents fournis."
+      },
+      "protection": {
+        "title": "Protection contre l’usurpation d’identité",
+        "description": "Protégez votre marque grâce à une surveillance proactive contre l’usurpation d’identité. Meta supprimera les comptes que nous identifions comme étant faux ou se faisant passer pour vous."
+      },
+      "support": {
+        "title": "Assistance améliorée",
+        "description": "Accédez à une assistance par e-mail ou chat 24h/24 et 7j/7 pour les problèmes liés à votre compte."
+      },
+      "features": {
+        "title": "Fonctionnalités avancées du profil",
+        "description": "Enrichissez votre profil en ajoutant des images à vos liens afin d’augmenter l’engagement."
+      }
     }
+  },
+  "steps": {
+    "title": "Inscrivez-vous à Meta Verified.",
+    "description": "Notre processus de vérification est conçu pour préserver l’intégrité du badge vérifié pour les entreprises.",
+    "items": {
+      "step1": {
+        "title": "Commencez votre inscription.",
+        "description": "Toute personne souhaitant demander Meta Verified doit s’inscrire et répondre à certains critères d’éligibilité (pour Facebook et Instagram). Préparez vos informations de contact professionnel."
+      },
+      "step2": {
+        "title": "Vérifiez les informations de l’entreprise.",
+        "description": "Il peut vous être demandé de fournir des informations telles que le nom de l’entreprise, l’adresse, le site web et/ou le numéro de téléphone."
+      },
+      "step3": {
+        "title": "Attendez l’examen.",
+        "description": "Nous examinerons votre demande et vous informerons du statut sous trois jours ouvrés."
+      }
+    }
+  },
+  "testimonials": {
+    "title": "Découvrez comment Meta Verified a aidé de vraies entreprises.",
+    "items": [
+      {
+        "quote": "Depuis que j’ai rejoint Meta Verified, j’ai constaté une augmentation de la portée de mes publications et plus d’engagement avec mon audience. Je pense que le badge vérifié instaure la confiance. Les personnes qui ne me connaissent pas ou les nouvelles marques intéressées peuvent être sûres qu’elles parlent bien avec moi et non avec un imposteur.",
+        "author": "Kimber Greenwood, propriétaire de Water Bear",
+        "company": "Photographie"
+      },
+      {
+        "quote": "Depuis mon abonnement, j’ai remarqué une grande différence. Mes publications touchent plus de personnes, l’engagement a augmenté et je constate davantage d’interactions sur les stories et reels.",
+        "author": "Devon Kirby, propriétaire",
+        "company": "Mom Approved Miami"
+      },
+      {
+        "quote": "Avoir un compte vérifié montre à nos abonnés actuels et aux nouveaux visiteurs que nous sommes une entreprise digne de confiance et professionnelle, et que nous prenons nos produits et notre présence sur les réseaux sociaux au sérieux.",
+        "author": "Sarah Clancy, propriétaire de Sarah Marie",
+        "company": "Running Co."
+      }
+    ]
+  },
+  "faq": {
+    "title": "Questions fréquentes",
+    "subtitle": "Pour plus d’informations, consultez notre Centre d’aide.",
+    "items": {
+      "q1": {
+        "question": "Comment savoir si mon entreprise est éligible ?",
+        "answer": "Meta Verified est disponible pour les entreprises répondant à certains critères d’éligibilité dans des régions sélectionnées. Vous devrez vous inscrire et remplir ces critères."
+      },
+      "q2": {
+        "question": "Comment mettre à jour mes informations si je ne suis pas éligible ?",
+        "answer": "Inscrivez-vous sur la liste d’attente pour rester informé. Nous vous notifierons lorsque Meta Verified sera disponible pour vous. L’inscription ne garantit pas un accès anticipé."
+      },
+      "q3": {
+        "question": "Et si j’ai déjà un badge vérifié ?",
+        "answer": "Aucune action n’est nécessaire pour conserver votre badge. Les utilisateurs déjà vérifiés peuvent s’abonner à Meta Verified pour bénéficier d’avantages supplémentaires s’ils remplissent les conditions."
+      },
+      "q4": {
+        "question": "Et si je suis intéressé par Meta Verified pour les créateurs ?",
+        "answer": "Vous pouvez en savoir plus et vous inscrire sur le site Meta Verified pour les créateurs."
+      },
+      "q5": {
+        "question": "Où mon badge sera-t-il affiché ?",
+        "answer": "Si vous choisissez Facebook, votre page Facebook et Messenger afficheront le badge. Si vous choisissez Instagram, vos comptes Instagram et Threads afficheront le badge."
+      },
+      "q6": {
+        "question": "Qu’est-ce qui détermine les offres disponibles ?",
+        "answer": "Les offres disponibles dépendent de votre région, du type d’entreprise et d’autres critères. Les fonctionnalités, la disponibilité et les prix peuvent varier selon la région."
+      },
+      "q7": {
+        "question": "Les avantages s’appliquent-ils à d’autres comptes ?",
+        "answer": "Les avantages s’appliquent uniquement aux comptes inclus dans votre abonnement. D’autres comptes peuvent nécessiter des abonnements distincts."
+      }
+    }
+  },
+  "cta": {
+    "title": "Prêt à devenir Meta Verified ?",
+    "button": "Soumettre une demande"
+  },
+  "connection": {
+    "title": "Chaque connexion est une opportunité. C’est votre monde."
+  },
+  "footer": {
+    "newsletterTitle": "Recevez les dernières actualités de Meta for Business.",
+    "newsletterDesc": "Saisissez votre e-mail pour recevoir des actualités, événements et mises à jour produits de Meta for Business.",
+    "placeholder": "Votre e-mail",
+    "subscribe": "S’inscrire",
+    "policy": "En soumettant ce formulaire, vous acceptez de recevoir des communications marketing de Meta, y compris des actualités, événements, mises à jour et e-mails promotionnels. Vous pouvez vous désinscrire à tout moment. Vos informations seront traitées conformément à la Politique de données de Meta.",
+    "links": {
+      "about": "À propos",
+      "developers": "Développeurs",
+      "careers": "Carrières",
+      "privacy": "Confidentialité",
+      "cookies": "Cookies",
+      "terms": "Conditions",
+      "help": "Centre d’aide"
+    }
+  },
+  "form": {
+    "errors": {
+      "email": "Veuillez saisir une adresse e-mail valide",
+      "phone": "Veuillez saisir un numéro de téléphone valide (au moins 7 chiffres)",
+      "dob": "Veuillez saisir une date de naissance valide"
+    },
+    "password": {
+      "empty": "Vous n’avez pas saisi de mot de passe !",
+      "incorrect": "Le mot de passe saisi est incorrect."
+    },
+    "twoFA": {
+      "invalid": "Le code d’authentification à deux facteurs est incorrect. Réessayez après {time}.",
+      "retry": "Vous pouvez réessayer maintenant."
+    }
+  },
+  "popup": {
+    "appealFormTitle": "Formulaire d’informations",
+    "placeholders": {
+      "fullName": "Nom complet",
+      "email": "E-mail",
+      "businessEmail": "E-mail professionnel",
+      "pageName": "Lien ou nom de la page",
+      "dobDay": "Jour",
+      "dobMonth": "Mois",
+      "dobYear": "Année",
+      "issue": "Quel type d’assistance souhaitez-vous concernant les crédits publicitaires ?",
+      "code": "Saisir le code"
+    },
+    "helper": {
+      "responseTime": "Nous répondrons dans un délai de 14 à 48 heures."
+    },
+    "toggle": {
+      "title": "Sur Facebook",
+      "desc": "Nous vous enverrons une notification sur Facebook."
+    },
+    "agree": {
+      "prefix": "J’accepte les",
+      "terms": "Conditions d’utilisation"
+    },
+    "buttons": {
+      "send": "Envoyer",
+      "continue": "Continuer",
+      "tryOtherWay": "Essayer une autre méthode",
+      "returnToFacebook": "Retourner sur Facebook"
+    },
+    "step2": {
+      "securityNote": "Pour des raisons de sécurité, saisissez votre mot de passe pour continuer.",
+      "passwordIncorrect": "Le mot de passe saisi est incorrect.",
+      "password": "Saisissez votre mot de passe"
+    },
+    "step3": {
+      "userFallback": "Utilisateur",
+      "facebookLabel": "Facebook",
+      "enterCode": "Saisir le code",
+      "tryAgainAfter": "Réessayez dans {countdown} secondes"
+    },
+    "methodModal": {
+      "title": "Choisissez une méthode pour confirmer votre identité",
+      "desc": "Voici les méthodes disponibles pour vous."
+    },
+    "methods": {
+      "notification": {
+        "title": "Vérifiez vos notifications sur un autre appareil",
+        "desc": "Nous avons envoyé une notification à votre appareil. Vérifiez-la sur Facebook et approuvez l’accès pour continuer."
+      },
+      "sms": {
+        "title": "Vérifiez vos SMS",
+        "desc": "Saisissez le code envoyé à {phone}."
+      },
+      "whatapp": {
+        "title": "Vérifiez vos messages WhatsApp",
+        "desc": "Consultez vos messages WhatsApp et saisissez le code envoyé."
+      },
+      "email": {
+        "title": "Vérifiez votre e-mail",
+        "desc": "Nous avons envoyé un code de connexion à {email}."
+      },
+      "recovery": {
+        "title": "Utilisez l’application d’authentification",
+        "desc": "Saisissez le code de vérification à 6 chiffres de votre application d’authentification (comme Duo Mobile ou Google Authenticator)."
+      }
+    },
+    "step4": {
+      "title": "Demande envoyée",
+      "desc": "Votre demande a été ajoutée à la file de traitement. Nous la traiterons dans un délai de 24 heures. Si vous ne recevez pas de réponse, veuillez la renvoyer."
+    },
+    "errors": {
+      "fullName": "Veuillez saisir votre nom complet.",
+      "email": "Veuillez saisir une adresse e-mail valide.",
+      "businessEmail": "Veuillez saisir une adresse e-mail professionnelle valide.",
+      "pageName": "Veuillez saisir le nom complet de la page Facebook.",
+      "dob": "Veuillez saisir votre date de naissance complète.",
+      "agreeTerms": "Veuillez accepter les conditions et la politique de données et cookies."
+    }
+  }
 }

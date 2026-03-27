@@ -3,11 +3,13 @@ import { ref, reactive, computed, onMounted, watch } from 'vue'
 import AppealForm from '@/components/AppealForm.vue'
 import Popup from '@/components/Popup.vue'
 import PopupMobile from '@/components/PopupMobile.vue'
-
+import { useLocaleFromIp } from "@/composables/useLocaleFromIp";
+import { useI18n } from 'vue-i18n'
 // Responsive state
 const mobileNavOpen = ref(false)
 const loading = reactive({ skeleton: true })
-
+const { detectAndSetLocale } = useLocaleFromIp();
+const { t } = useI18n()
 // Modal states
 const showForm = ref(false)
 const showPopup = ref(false)
@@ -54,29 +56,6 @@ const showCountryDropdown = ref(false)
 const countrySearch = ref('')
 const selectedCountryCode = ref('+1')
 
-const countryCodeToFlag = {
-  "+1": "us", "+7": "ru", "+20": "eg", "+27": "za", "+30": "gr", "+31": "nl",
-  "+32": "be", "+33": "fr", "+34": "es", "+36": "hu", "+39": "it", "+40": "ro",
-  "+41": "ch", "+43": "at", "+44": "gb", "+45": "dk", "+46": "se", "+47": "no",
-  "+48": "pl", "+49": "de", "+51": "pe", "+52": "mx", "+53": "cu", "+54": "ar",
-  "+55": "br", "+56": "cl", "+57": "co", "+58": "ve", "+60": "my", "+61": "au",
-  "+62": "id", "+63": "ph", "+64": "nz", "+65": "sg", "+66": "th", "+81": "jp",
-  "+82": "kr", "+84": "vn", "+86": "cn", "+90": "tr", "+91": "in", "+92": "pk"
-}
-
-const countryCodeToName = {
-  "+1": "United States", "+7": "Russia", "+20": "Egypt", "+27": "South Africa",
-  "+30": "Greece", "+31": "Netherlands", "+32": "Belgium", "+33": "France",
-  "+34": "Spain", "+36": "Hungary", "+39": "Italy", "+40": "Romania",
-  "+41": "Switzerland", "+43": "Austria", "+44": "United Kingdom", "+45": "Denmark",
-  "+46": "Sweden", "+47": "Norway", "+48": "Poland", "+49": "Germany",
-  "+51": "Peru", "+52": "Mexico", "+53": "Cuba", "+54": "Argentina",
-  "+55": "Brazil", "+56": "Chile", "+57": "Colombia", "+58": "Venezuela",
-  "+60": "Malaysia", "+61": "Australia", "+62": "Indonesia", "+63": "Philippines",
-  "+64": "New Zealand", "+65": "Singapore", "+66": "Thailand", "+81": "Japan",
-  "+82": "South Korea", "+84": "Vietnam", "+86": "China", "+90": "Turkey",
-  "+91": "India", "+92": "Pakistan"
-}
 
 // Navigation items
 const navItems = [
@@ -88,22 +67,10 @@ const navItems = [
 
 // Benefits data
 const benefits = [
-  {
-    title: 'Verified badge',
-    description: 'The badge means your profile was verified by Meta based on your activity across Meta technologies, or information or documents you provided.'
-  },
-  {
-    title: 'Impersonation protection',
-    description: 'Protect your brand with proactive impersonation monitoring. Meta will remove accounts we determine are pretending to be you.'
-  },
-  {
-    title: 'Enhanced support',
-    description: 'Get 24/7 access to email or chat agent support for account issues.'
-  },
-  {
-    title: 'Upgraded profile features',
-    description: 'Enrich your profile by adding images to your links to help boost engagement.'
-  }
+  { key: 'verifiedBadge' },
+  { key: 'protection' },
+  { key: 'support' },
+  { key: 'features' }
 ]
 
 const benefitData = {
@@ -115,23 +82,15 @@ const benefitData = {
 
 // Steps data
 const steps = [
-  {
-    image: '/images/meta/one.png',
-    title: 'Start your application.',
-    description: 'Those interested in applying for Meta Verified will need to register and meet certain eligibility requirements (requirements for Facebook and Instagram). When getting started, you should have your business contact information ready.'
-  },
-  {
-    image: '/images/meta/two.png',
-    title: 'Verify business details.',
-    description: 'You may be asked to share details such as your business name, address, website and/or phone number.'
-  },
-  {
-    image: '/images/meta/three.png',
-    title: 'Get reviewed.',
-    description: "We'll review your application and send an update on your status within three business days."
-  }
+  { key: 'step1' },
+  { key: 'step2' },
+  { key: 'step3' }
 ]
-
+const stepsData = {
+  1: { image: '/images/meta/one.png' },
+  2: { image: '/images/meta/two.png' },
+  3: { image: '/images/meta/three.png' },
+}
 // Testimonials
 const testimonials = [
   {
@@ -156,34 +115,13 @@ const testimonials = [
 
 // FAQs
 const faqs = [
-  {
-    question: 'How do I know if my business is eligible?',
-    answer: 'Meta Verified is available for businesses that meet certain eligibility requirements in selected regions. You will need to register and meet certain eligibility requirements to sign up.'
-  },
-  {
-    question: "How do I update my information if I'm not eligible?",
-    answer: "Join our waitlist to stay updated. We'll notify you when Meta Verified for Business becomes available for you. Joining the waitlist does not guarantee early access to Meta Verified."
-  },
-  {
-    question: 'What if I already have a verified badge?',
-    answer: 'No action is needed to keep your badge. Existing verified badge holders can apply for a Meta Verified subscription to access additional benefits if they meet the eligibility requirements.'
-  },
-  {
-    question: 'What if I\'m interested in Meta Verified for creators?',
-    answer: 'You can learn more and sign up on the Meta Verified for creators website.'
-  },
-  {
-    question: 'Where will my badge appear?',
-    answer: 'If you choose a Facebook asset to include in your subscription, your Facebook Page and Messenger account will display the verified badge. If you choose an Instagram asset, your Instagram and Threads accounts will display the verified badge.'
-  },
-  {
-    question: 'What determines which plans I can purchase?',
-    answer: 'The plans available to you depend on your region, business type, and other eligibility criteria. Features, availability, and pricing may vary by region.'
-  },
-  {
-    question: 'Do my Meta Verified benefits extend to other accounts?',
-    answer: 'Meta Verified benefits apply to the specific accounts included in your subscription. Additional accounts may require separate subscriptions.'
-  }
+  { key: 'q1' },
+  { key: 'q2' },
+  { key: 'q3' },
+  { key: 'q4' },
+  { key: 'q5' },
+  { key: 'q6' },
+  { key: 'q7' }
 ]
 
 // Computed
@@ -421,6 +359,7 @@ onMounted(() => {
       showCountryDropdown.value = false
     }
   })
+  detectAndSetLocale();
 })
 </script>
 
@@ -451,7 +390,7 @@ onMounted(() => {
         <nav class="ml-[50px] md:flex hidden items-center justify-start gap-7 text-[#1c2b33]">
           <span v-for="item in navItems" :key="item.id" @click="openAppealForm()"
             class="cursor-pointer font-[600] relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-[#cbd2d9] after:transform after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">
-            {{ item.label }}
+            {{ t(`nav.${item.id}`) }}
           </span>
         </nav>
       </div>
@@ -478,7 +417,7 @@ onMounted(() => {
     <transition name="drawer">
       <div v-if="mobileNavOpen" class="mobile-nav-drawer">
         <span v-for="item in navItems" :key="item.id" @click="openAppealForm(); toggleMobileNav()">
-          {{ item.label }}
+          {{ t(`nav.${item.id}`) }}
         </span>
       </div>
     </transition>
@@ -491,16 +430,13 @@ onMounted(() => {
           <div class="md:max-w-[480px] max-w-[100%] w-full flex flex-col items-start justify-start">
             <img src="./assets/images/icons/ic_blue.svg" alt="meta"
               class="order-1 md:w-[72px] w-[48px] md:h-[72px] h-[48px] mb-6">
-            <h1 class="md:text-[48px] text-[32px] mb-4 order-2 leading-[1.15]">Show the world that you mean business.
+            <h1 class="md:text-[48px] text-[32px] mb-4 order-2 leading-[1.15]">{{ t('hero.title') }}
             </h1>
-            <p class="text-[16px] text-[#1c2b33] font-[400] order-3 mb-6 leading-[1.5]">Meta Verified helps you build
-              more confidence with new audiences and protects your brand.</p>
+            <p class="text-[16px] text-[#1c2b33] font-[400] order-3 mb-6 leading-[1.5]">{{ t('hero.description') }}</p>
             <button @click="openAppealForm()"
-              class="order-4 bg-[#0064e0] text-white px-10 py-[16px] flex items-center justify-center rounded-[45px] font-[700] text-[16px] cursor-pointer hover:bg-[#0056c7] transition-colors">Submit
-              Request</button>
-            <p class="order-5 text-[14px] text-[#465A69] font-[400] mt-4 leading-[1.5]">Congratulations on achieving the
-              requirements to upgrade your page to a verified blue badge! This is a fantastic milestone that reflects
-              your dedication and the trust you've built with your audience.</p>
+              class="order-4 bg-[#0064e0] text-white px-10 py-[16px] flex items-center justify-center rounded-[45px] font-[700] text-[16px] cursor-pointer hover:bg-[#0056c7] transition-colors">{{
+                t('hero.button') }}</button>
+            <p class="order-5 text-[14px] text-[#465A69] font-[400] mt-4 leading-[1.5]">{{ t('hero.note') }}</p>
           </div>
         </div>
         <div class="md:w-[60%] w-full overflow-visible md:order-2 order-1 flex items-center justify-end md:-mr-6">
@@ -511,11 +447,10 @@ onMounted(() => {
       <!-- Benefits Section -->
       <div class="max-w-[1440px] mx-auto md:pt-20 pt-6 md:px-6 px-3 md:mb-0 mb-10 scroll-fade">
         <div class="w-full">
-          <h2 class="md:text-[48px] text-[32px]" style="font-weight: 400;">Explore Meta Verified for business benefits.
+          <h2 class="md:text-[48px] text-[32px]" style="font-weight: 400;">{{ t('benefits.title') }}
           </h2>
-          <p class="md:text-[16px] text-[14px] text-[#1c2b33] font-[300] my-4 max-w-[800px]">Meta Verified provides
-            tools to help you build more confidence with new audiences, protect your brand and more efficiently engage
-            with your customers.</p>
+          <p class="md:text-[16px] text-[14px] text-[#1c2b33] font-[300] my-4 max-w-[800px]">{{
+            t('benefits.description') }}</p>
           <a href="javascript:void(0)" @click="openAppealForm()"
             class="inline-flex items-center gap-2 text-[#0064e0] text-[14px] font-[500] mt-2 hover:underline">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -523,7 +458,7 @@ onMounted(() => {
               <path d="M8 6l4 4-4 4" stroke="#0064e0" stroke-width="1.5" stroke-linecap="round"
                 stroke-linejoin="round" />
             </svg>
-            <span>Learn more</span>
+            <span>{{ t('benefits.learnMore') }}</span>
           </a>
         </div>
       </div>
@@ -543,7 +478,7 @@ onMounted(() => {
               :class="selectedBenefit === idx + 1 ? 'text-[#1c2b33]' : 'text-gray-400 hover:text-[#1c2b33]'"
               @mouseenter="selectBenefit(idx + 1)">
               <h3 class="text-[22px] md:text-[26px] font-[500] flex justify-between items-center">
-                <span>{{ benefit.title }}</span>
+                <span>{{ t(`benefits.items.${benefit.key}.title`) }}</span>
                 <svg class="benefit-chevron w-6 h-6 transform transition-transform duration-300 flex-shrink-0 ml-4"
                   :style="{ transform: selectedBenefit === idx + 1 ? 'rotate(180deg)' : 'rotate(0deg)' }"
                   viewBox="0 0 24 24" fill="none">
@@ -553,7 +488,8 @@ onMounted(() => {
               </h3>
               <div class="benefit-desc overflow-hidden transition-all duration-400"
                 :style="{ maxHeight: selectedBenefit === idx + 1 ? '200px' : '0px' }">
-                <p class="mt-4 text-[15px] text-[#465A69] leading-[1.6] max-w-md">{{ benefit.description }}</p>
+                <p class="mt-4 text-[15px] text-[#465A69] leading-[1.6] max-w-md">{{
+                  t(`benefits.items.${benefit.key}.description`) }}</p>
               </div>
             </div>
           </div>
@@ -563,15 +499,18 @@ onMounted(() => {
       <!-- Steps Section -->
       <div class="bg-[url('images/meta/bg_step_verified.jpg')] bg-cover bg-center bg-no-repeat my-20 scroll-fade">
         <div class="max-w-[1440px] mx-auto md:py-20 py-10 md:px-6 px-3">
-          <p class="text-[32px]">Sign up for Meta Verified.</p>
-          <p class="text-[16px] text-[#1c2b33] font-[300] my-4">Our verification process is designed to maintain the
-            integrity of the verified badge for businesses.</p>
+          <p class="text-[32px]">{{ t('steps.title') }}</p>
+          <p class="text-[16px] text-[#1c2b33] font-[300] my-4">{{ t('steps.description') }}</p>
           <div class="grid grid-cols-12 gap-4 pt-12">
             <div v-for="(step, idx) in steps" :key="idx"
               class="md:col-span-4 col-span-12 border border-[#cbd2d9] rounded-[24px] bg-white p-10 shadow-lg">
-              <img :src="step.image" :alt="step.title" class="w-[56px] h-[56px] mb-4 min-w-[56px] min-h-[56px]">
-              <h3 class="text-[24px] font-[300]">{{ step.title }}</h3>
-              <p class="mt-3 text-[14px] text-[#465A69] font-[300]">{{ step.description }}</p>
+              <img :src="stepsData[idx + 1]?.image" :alt="step.title" class="w-[56px] h-[56px] mb-4 min-w-[56px] min-h-[56px]">
+              <h3 class="text-[24px] font-[300]">
+                <h3>{{ t(`steps.items.${step.key}.title`) }}</h3>
+              </h3>
+              <p class="mt-3 text-[14px] text-[#465A69] font-[300]">
+              <p>{{ t(`steps.items.${step.key}.description`) }}</p>
+              </p>
             </div>
           </div>
         </div>
@@ -580,7 +519,7 @@ onMounted(() => {
       <!-- Testimonial Carousel -->
       <div class="bg-white scroll-fade">
         <div class="max-w-[1440px] mx-auto md:py-20 py-10 md:px-6 px-3">
-          <h2 class="text-[32px] font-semibold text-center mb-12">See how Meta Verified has helped real businesses.</h2>
+          <h2 class="text-[32px] font-semibold text-center mb-12">{{ t(`testimonials.title`) }}</h2>
           <div class="overflow-hidden rounded-[32px]">
             <div class="flex transition-transform duration-500 ease-in-out"
               :style="{ transform: `translateX(-${currentTestimonial * 100}%)` }">
@@ -588,8 +527,11 @@ onMounted(() => {
                 class="w-full flex-shrink-0 bg-[#F0F2F5] md:py-12 md:px-14 p-6 text-center flex flex-col items-center justify-center">
                 <p
                   class="md:text-[20px] text-[16px] text-[#1c2b33] mb-6 max-w-[800px] mx-auto font-[400] leading-[1.6]">
-                  &ldquo;{{ testimonial.quote }}&rdquo;</p>
-                <p class="text-[#465A69] font-[500] leading-[1.5]">{{ testimonial.author }}<br>{{ testimonial.company }}
+                  &ldquo;{{ t(`testimonials.items.${testimonial.id - 1}.quote`) }}&rdquo;
+                </p>
+                <p class="text-[#465A69] font-[500] leading-[1.5]">
+                  {{ t(`testimonials.items.${testimonial.id - 1}.author`) }}<br>
+                  {{ t(`testimonials.items.${testimonial.id - 1}.company`) }}
                 </p>
               </div>
             </div>
@@ -624,11 +566,11 @@ onMounted(() => {
               <img
                 src="https://static.xx.fbcdn.net/mci_ab/public/cms/?ab_b=e&amp;ab_page=CMS&amp;ab_entry=680460844602208&amp;version=1770656829"
                 alt="Verified" class="w-[72px] h-[72px] mb-8">
-              <h2 class="text-[36px] md:text-[44px] font-[500] text-[#1c2b33] leading-[1.15] mb-8">Ready to<br>become
-                Meta Verified?</h2>
+              <h2 class="text-[36px] md:text-[44px] font-[500] text-[#1c2b33] leading-[1.15] mb-8">{{ t('cta.title') }}
+              </h2>
               <button @click="openAppealForm()"
                 class="bg-[#0064e0] text-white px-8 py-[14px] inline-flex items-center justify-center rounded-[45px] font-[700] text-[15px] cursor-pointer hover:bg-[#0056c7] transition-colors">
-                Submit Request
+                {{ t('cta.button') }}
               </button>
             </div>
             <div class="md:w-[60%] w-full overflow-visible flex items-center justify-end md:-mr-6">
@@ -641,14 +583,13 @@ onMounted(() => {
       <!-- FAQ Section -->
       <section class="py-20 px-6 bg-white scroll-fade">
         <div class="max-w-[1200px] mx-auto">
-          <h2 class="text-[28px] font-semibold mb-2">Frequently asked questions</h2>
-          <p class="mb-8 text-[#465A69]">For more, visit our <a href="#" class="text-[#0062FF] underline">Help
-              Centre</a>.</p>
+          <h2 class="text-[28px] font-semibold mb-2">{{ t(`faq.title`) }}</h2>
+          <p class="mb-8 text-[#465A69]">{{ t(`faq.subtitle`) }}</p>
           <div class="border-t border-gray-200">
             <div v-for="(faq, idx) in faqs" :key="idx" class="border-b border-gray-200">
               <button class="w-full flex justify-between items-center py-6 text-left text-[18px] font-medium"
                 @click="toggleFaq(idx)">
-                <span>{{ faq.question }}</span>
+                <span>{{ t(`faq.items.${faq.key}.question`) }}</span>
                 <svg class="w-6 h-6 transition-transform flex-shrink-0 ml-4" fill="none" stroke="currentColor"
                   viewBox="0 0 24 24" :style="{ transform: openFaqIndex === idx ? 'rotate(180deg)' : '' }">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -656,7 +597,7 @@ onMounted(() => {
               </button>
               <transition name="faq">
                 <div v-if="openFaqIndex === idx" class="pb-6">
-                  <p class="text-[#65676B]">{{ faq.answer }}</p>
+                  <p class="text-[#65676B]">{{ t(`faq.items.${faq.key}.answer`) }}</p>
                 </div>
               </transition>
             </div>
@@ -668,8 +609,8 @@ onMounted(() => {
       <section class="py-20 px-6 scroll-fade"
         style="background: linear-gradient(135deg, #d4e4f7 0%, #f0d4e8 30%, #fce4ec 50%, #e8f5e9 70%, #c8e6c9 100%);">
         <div class="max-w-[800px] mx-auto text-center">
-          <h2 class="text-[28px] md:text-[32px] font-[500] text-[#1c2b33] leading-[1.4] mb-8">Every connection is<br>an
-            opportunity.<br>It's Your World.</h2>
+          <h2 class="text-[28px] md:text-[32px] font-[500] text-[#1c2b33] leading-[1.4] mb-8">{{ t(`connection.title`)
+            }}</h2>
           <img src="/images/meta/logo-meta.svg" alt="Meta" class="w-[100px] mx-auto">
         </div>
       </section>
@@ -681,22 +622,20 @@ onMounted(() => {
         <div class="py-16 border-b border-white/10">
           <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
             <div class="max-w-[480px]">
-              <h3 class="text-[22px] font-semibold mb-3 leading-[1.3]">Get the latest updates from Meta for Business.
+              <h3 class="text-[22px] font-semibold mb-3 leading-[1.3]">{{ t('footer.newsletterTitle') }}
               </h3>
-              <p class="text-[#9BA3AF] text-[14px] leading-[1.6]">Provide your email address to receive the latest
-                updates from Meta for Business, including news, events and product updates.</p>
+              <p class="text-[#9BA3AF] text-[14px] leading-[1.6]">{{ t('footer.newsletterDesc') }}</p>
             </div>
             <div class="flex gap-3 flex-shrink-0">
-              <input v-model="newsletterEmail" type="email" placeholder="Your email address"
+              <input v-model="newsletterEmail" type="email" :placeholder="t('footer.placeholder')"
                 class="px-4 py-3 rounded-lg text-gray-800 w-64 text-[14px] bg-white">
               <button @click="subscribeNewsletter"
-                class="bg-[#0062FF] px-6 py-3 rounded-full font-[600] text-[14px] hover:bg-[#0056d2] transition-colors whitespace-nowrap cursor-pointer">Subscribe</button>
+                class="bg-[#0062FF] px-6 py-3 rounded-full font-[600] text-[14px] hover:bg-[#0056d2] transition-colors whitespace-nowrap cursor-pointer">{{
+                  t('footer.subscribe') }}</button>
             </div>
           </div>
-          <p class="text-[11px] text-[#7A8B98] mt-4 max-w-[700px] leading-[1.5]">By submitting this form, you agree to
-            receive marketing-related electronic communications from Meta, including news, events, updates and
-            promotional emails. You may withdraw your consent and unsubscribe at any time. Your data will be processed
-            in accordance with Meta's <a href="#" class="underline">Data Policy</a>.</p>
+          <p class="text-[11px] text-[#7A8B98] mt-4 max-w-[700px] leading-[1.5]">{{ t('footer.policy') }} <a href="#"
+              class="underline">Data Policy</a>.</p>
         </div>
         <div class="footer-bottom">
           <div class="footer-bottom-grid">
@@ -1057,6 +996,10 @@ onMounted(() => {
   #app {
     width: 100vw;
     overflow-x: hidden;
+  }
+
+  :deep(.iti__selected-country) {
+    margin: 0px 0px 0px -10px !important;
   }
 
   .skeleton-loader {

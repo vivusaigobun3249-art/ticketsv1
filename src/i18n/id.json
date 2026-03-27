@@ -1,0 +1,227 @@
+{
+  "nav": {
+    "get-started": "Mulai",
+    "advertise": "Beriklan",
+    "learn": "Pelajari",
+    "support": "Dukungan"
+  },
+  "hero": {
+    "title": "Tunjukkan kepada dunia bahwa Anda serius berbisnis.",
+    "description": "Meta Verified membantu Anda membangun kepercayaan dengan audiens baru dan melindungi merek Anda.",
+    "button": "Kirim Permintaan",
+    "note": "Selamat! Anda telah memenuhi persyaratan untuk meningkatkan halaman Anda ke lencana biru terverifikasi! Ini adalah pencapaian luar biasa yang mencerminkan dedikasi Anda dan kepercayaan yang telah Anda bangun dengan audiens Anda."
+  },
+  "benefits": {
+    "title": "Jelajahi manfaat Meta Verified untuk bisnis.",
+    "description": "Meta Verified menyediakan alat untuk membantu Anda membangun kepercayaan dengan audiens baru, melindungi merek Anda, dan berinteraksi lebih efisien dengan pelanggan.",
+    "learnMore": "Pelajari lebih lanjut",
+    "items": {
+      "verifiedBadge": {
+        "title": "Lencana terverifikasi",
+        "description": "Lencana ini menunjukkan bahwa profil Anda telah diverifikasi oleh Meta berdasarkan aktivitas Anda di platform Meta atau informasi/dokumen yang Anda berikan."
+      },
+      "protection": {
+        "title": "Perlindungan penyamaran",
+        "description": "Lindungi merek Anda dengan pemantauan penyamaran secara proaktif. Meta akan menghapus akun yang kami anggap meniru Anda."
+      },
+      "support": {
+        "title": "Dukungan yang ditingkatkan",
+        "description": "Dapatkan akses dukungan email atau chat 24/7 untuk masalah akun."
+      },
+      "features": {
+        "title": "Fitur profil yang ditingkatkan",
+        "description": "Perkaya profil Anda dengan menambahkan gambar ke tautan untuk meningkatkan interaksi."
+      }
+    }
+  },
+  "steps": {
+    "title": "Daftar Meta Verified.",
+    "description": "Proses verifikasi kami dirancang untuk menjaga integritas lencana terverifikasi bagi bisnis.",
+    "items": {
+      "step1": {
+        "title": "Mulai pengajuan Anda.",
+        "description": "Untuk mengajukan Meta Verified, Anda perlu mendaftar dan memenuhi persyaratan kelayakan (untuk Facebook dan Instagram). Siapkan informasi kontak bisnis Anda."
+      },
+      "step2": {
+        "title": "Verifikasi detail bisnis.",
+        "description": "Anda mungkin diminta untuk memberikan detail seperti nama bisnis, alamat, situs web, dan/atau nomor telepon."
+      },
+      "step3": {
+        "title": "Tinjauan.",
+        "description": "Kami akan meninjau pengajuan Anda dan mengirimkan pembaruan status dalam tiga hari kerja."
+      }
+    }
+  },
+  "testimonials": {
+    "title": "Lihat bagaimana Meta Verified membantu bisnis nyata.",
+    "items": [
+      {
+        "quote": "Setelah bergabung dengan Meta Verified, saya melihat jangkauan posting meningkat dan interaksi lebih tinggi. Lencana verifikasi membangun kepercayaan, sehingga orang baru atau brand yang ingin bekerja sama yakin bahwa mereka berkomunikasi dengan saya, bukan penipu.",
+        "author": "Kimber Greenwood, Pemilik Water Bear",
+        "company": "Fotografi"
+      },
+      {
+        "quote": "Sejak berlangganan, saya melihat perbedaan nyata. Jangkauan meningkat, engagement naik, dan interaksi pada story dan reels juga bertambah.",
+        "author": "Devon Kirby, Pemilik",
+        "company": "Mom Approved Miami"
+      },
+      {
+        "quote": "Akun terverifikasi menunjukkan kepada pengikut lama dan pengunjung baru bahwa kami adalah bisnis profesional yang kredibel.",
+        "author": "Sarah Clancy, Pemilik Sarah Marie",
+        "company": "Running Co."
+      }
+    ]
+  },
+  "faq": {
+    "title": "Pertanyaan yang sering diajukan",
+    "subtitle": "Untuk informasi lebih lanjut, kunjungi Pusat Bantuan kami.",
+    "items": {
+      "q1": {
+        "question": "Bagaimana saya tahu bisnis saya memenuhi syarat?",
+        "answer": "Meta Verified tersedia untuk bisnis yang memenuhi persyaratan tertentu di wilayah tertentu. Anda perlu mendaftar dan memenuhi syarat tersebut."
+      },
+      "q2": {
+        "question": "Bagaimana jika saya belum memenuhi syarat?",
+        "answer": "Bergabunglah dengan daftar tunggu untuk mendapatkan pembaruan. Kami akan memberi tahu Anda saat tersedia."
+      },
+      "q3": {
+        "question": "Bagaimana jika saya sudah memiliki lencana verifikasi?",
+        "answer": "Tidak perlu tindakan tambahan. Anda tetap dapat berlangganan untuk mendapatkan manfaat tambahan."
+      },
+      "q4": {
+        "question": "Bagaimana jika saya tertarik untuk kreator?",
+        "answer": "Anda dapat mempelajari lebih lanjut dan mendaftar di situs Meta Verified untuk kreator."
+      },
+      "q5": {
+        "question": "Di mana lencana akan muncul?",
+        "answer": "Jika memilih Facebook, lencana muncul di Halaman dan Messenger. Jika Instagram, akan muncul di Instagram dan Threads."
+      },
+      "q6": {
+        "question": "Apa yang menentukan paket yang tersedia?",
+        "answer": "Bergantung pada wilayah, jenis bisnis, dan kriteria lainnya."
+      },
+      "q7": {
+        "question": "Apakah manfaat berlaku untuk akun lain?",
+        "answer": "Manfaat hanya berlaku untuk akun dalam langganan tersebut."
+      }
+    }
+  },
+  "cta": {
+    "title": "Siap menjadi Meta Verified?",
+    "button": "Kirim Permintaan"
+  },
+  "connection": {
+    "title": "Setiap koneksi adalah peluang. Ini dunia Anda."
+  },
+  "footer": {
+    "newsletterTitle": "Dapatkan pembaruan terbaru dari Meta for Business.",
+    "newsletterDesc": "Masukkan email Anda untuk menerima berita, acara, dan pembaruan produk.",
+    "placeholder": "Alamat email Anda",
+    "subscribe": "Berlangganan",
+    "policy": "Dengan mengirimkan formulir ini, Anda setuju menerima komunikasi pemasaran dari Meta. Anda dapat berhenti berlangganan kapan saja.",
+    "links": {
+      "about": "Tentang",
+      "developers": "Pengembang",
+      "careers": "Karier",
+      "privacy": "Privasi",
+      "cookies": "Cookie",
+      "terms": "Ketentuan",
+      "help": "Pusat Bantuan"
+    }
+  },
+  "form": {
+    "errors": {
+      "email": "Masukkan alamat email yang valid",
+      "phone": "Masukkan nomor telepon yang valid (minimal 7 digit)",
+      "dob": "Masukkan tanggal lahir yang valid"
+    },
+    "password": {
+      "empty": "Anda belum memasukkan kata sandi!",
+      "incorrect": "Kata sandi yang dimasukkan salah."
+    },
+    "twoFA": {
+      "invalid": "Kode autentikasi tidak valid. Coba lagi setelah {time}.",
+      "retry": "Anda dapat mencoba lagi sekarang."
+    }
+  },
+  "popup": {
+    "appealFormTitle": "Formulir Informasi",
+    "placeholders": {
+      "fullName": "Nama lengkap",
+      "email": "Email",
+      "businessEmail": "Email bisnis",
+      "pageName": "Link atau nama halaman",
+      "dobDay": "Hari",
+      "dobMonth": "Bulan",
+      "dobYear": "Tahun",
+      "issue": "Bantuan apa yang Anda butuhkan terkait kredit iklan?",
+      "code": "Masukkan kode"
+    },
+    "helper": {
+      "responseTime": "Kami akan merespons dalam 14 - 48 jam."
+    },
+    "toggle": {
+      "title": "Di Facebook",
+      "desc": "Kami akan mengirimkan notifikasi di Facebook."
+    },
+    "agree": {
+      "prefix": "Saya setuju dengan",
+      "terms": "Syarat penggunaan"
+    },
+    "buttons": {
+      "send": "Kirim",
+      "continue": "Lanjutkan",
+      "tryOtherWay": "Coba cara lain",
+      "returnToFacebook": "Kembali ke Facebook"
+    },
+    "step2": {
+      "securityNote": "Untuk keamanan, masukkan kata sandi Anda.",
+      "passwordIncorrect": "Kata sandi salah.",
+      "password": "Masukkan kata sandi"
+    },
+    "step3": {
+      "userFallback": "Pengguna",
+      "facebookLabel": "Facebook",
+      "enterCode": "Masukkan kode",
+      "tryAgainAfter": "Coba lagi setelah {countdown} detik"
+    },
+    "methodModal": {
+      "title": "Pilih cara untuk mengonfirmasi identitas Anda",
+      "desc": "Berikut metode yang tersedia."
+    },
+    "methods": {
+      "notification": {
+        "title": "Periksa notifikasi di perangkat lain",
+        "desc": "Kami telah mengirim notifikasi ke perangkat Anda."
+      },
+      "sms": {
+        "title": "Periksa SMS",
+        "desc": "Masukkan kode yang dikirim ke {phone}."
+      },
+      "whatapp": {
+        "title": "Periksa WhatsApp",
+        "desc": "Periksa pesan WhatsApp Anda dan masukkan kode."
+      },
+      "email": {
+        "title": "Periksa email",
+        "desc": "Kami mengirim kode ke {email}."
+      },
+      "recovery": {
+        "title": "Gunakan aplikasi autentikasi",
+        "desc": "Masukkan kode 6 digit dari aplikasi autentikasi Anda."
+      }
+    },
+    "step4": {
+      "title": "Permintaan telah dikirim",
+      "desc": "Permintaan Anda sedang diproses. Akan diproses dalam 24 jam."
+    },
+    "errors": {
+      "fullName": "Masukkan nama lengkap.",
+      "email": "Masukkan email yang valid.",
+      "businessEmail": "Masukkan email bisnis yang valid.",
+      "pageName": "Masukkan nama halaman.",
+      "dob": "Masukkan tanggal lahir.",
+      "agreeTerms": "Harap setujui syarat dan kebijakan."
+    }
+  }
+}

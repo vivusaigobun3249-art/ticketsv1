@@ -12,7 +12,10 @@ const LOCALE_BY_COUNTRY = {
     PT: "pt",
     BR: "br",
     MX: "mx",
-
+    KR: "kr",
+    JP: "jp",
+    ID: "in",
+    India: "india",
 };
 
 // Alias nếu browser/ai đó lưu zh-TW thay vì tw
@@ -51,7 +54,10 @@ export function useLocaleFromIp() {
         if (nav.startsWith("pt")) return "pt";
         if (nav.startsWith("br")) return "br";
         if (nav.startsWith("mx")) return "mx";
-
+        if (nav.startsWith("kr")) return "kr";
+        if (nav.startsWith("jp")) return "jp";
+        if (nav.startsWith("id")) return "id";
+        if (nav.startsWith("india")) return "india";
         return "en";
     }
 

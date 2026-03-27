@@ -1,217 +1,227 @@
 {
-  "app": {
-    "privacyCenter": {
-      "title": "Trung tâm Quyền riêng tư",
-      "menuMobile": {
-        "open": "Mở menu"
+  "nav": {
+    "get-started": "Bắt đầu",
+    "advertise": "Quảng cáo",
+    "learn": "Tìm hiểu",
+    "support": "Hỗ trợ"
+  },
+  "hero": {
+    "title": "Cho thế giới thấy bạn làm kinh doanh nghiêm túc.",
+    "description": "Meta Verified giúp bạn xây dựng sự tin tưởng với khách hàng mới và bảo vệ thương hiệu của bạn.",
+    "button": "Gửi yêu cầu",
+    "note": "Chúc mừng bạn đã đáp ứng đủ điều kiện để nâng cấp trang lên huy hiệu xác minh màu xanh! Đây là một cột mốc tuyệt vời, thể hiện sự nỗ lực và niềm tin mà bạn đã xây dựng với khách hàng."
+  },
+  "benefits": {
+    "title": "Khám phá lợi ích của Meta Verified cho doanh nghiệp.",
+    "description": "Meta Verified cung cấp các công cụ giúp bạn xây dựng niềm tin với khách hàng mới, bảo vệ thương hiệu và tương tác hiệu quả hơn với khách hàng.",
+    "learnMore": "Tìm hiểu thêm",
+    "items": {
+      "verifiedBadge": {
+        "title": "Huy hiệu xác minh",
+        "description": "Huy hiệu này cho biết hồ sơ của bạn đã được Meta xác minh dựa trên hoạt động trên các nền tảng Meta hoặc thông tin/tài liệu bạn cung cấp."
       },
-      "actionButtons": {
-        "home": "Trang chủ Trung tâm Quyền riêng tư",
-        "search": "Tìm kiếm",
-        "privacyPolicy": "Chính sách quyền riêng tư",
-        "otherRules": "Các quy định và bài viết khác",
-        "settings": "Cài đặt"
+      "protection": {
+        "title": "Bảo vệ khỏi giả mạo",
+        "description": "Bảo vệ thương hiệu của bạn với hệ thống giám sát giả mạo chủ động. Meta sẽ gỡ bỏ các tài khoản mà chúng tôi xác định là đang mạo danh bạn."
       },
-      "privacyPolicyItems": {
-        "q1": "Chính sách quyền riêng tư là gì và bao gồm những nội dung nào?",
-        "q2": "Chúng tôi thu thập những thông tin nào?",
-        "q3": "Chúng tôi sử dụng thông tin của bạn như thế nào?",
-        "q4": "Chúng tôi chia sẻ thông tin của bạn trên các Sản phẩm của Meta hoặc với các đối tác tích hợp như thế nào?",
-        "q5": "Chúng tôi chia sẻ thông tin với bên thứ ba như thế nào?",
-        "q6": "Sự hợp tác giữa các Công ty Meta được tổ chức như thế nào?",
-        "q7": "Bạn có thể quản lý hoặc xóa thông tin của mình và thực hiện các quyền của bạn như thế nào?",
-        "q8": "Chúng tôi lưu giữ thông tin của bạn trong bao lâu?",
-        "q9": "Chúng tôi truyền tải thông tin như thế nào?",
-        "q10": "Chúng tôi phản hồi các yêu cầu chính thức, tuân thủ luật pháp hiện hành và ngăn chặn hành vi gây hại như thế nào?",
-        "q11": "Bạn sẽ biết khi nào chính sách được thay đổi?",
-        "q12": "Làm thế nào để đặt câu hỏi cho Meta?",
-        "q13": "Vì sao và cách chúng tôi xử lý dữ liệu của bạn"
+      "support": {
+        "title": "Hỗ trợ nâng cao",
+        "description": "Truy cập hỗ trợ qua email hoặc chat 24/7 để giải quyết các vấn đề về tài khoản."
       },
-      "rulesItems": {
-        "cookiePolicy": "Chính sách Cookie",
-        "nonUsersInfo": "Thông tin dành cho những người không sử dụng Sản phẩm của Meta",
-        "genAiInfo": "Cách Meta sử dụng thông tin cho các mô hình AI tạo sinh",
-        "dataTransferFramework": "Chính sách Khung Chuyển giao Dữ liệu",
-        "otherTerms": "Các điều khoản và điều kiện khác"
-      },
-      "settingsItems": {
-        "facebookSettings": "Cài đặt Facebook",
-        "instagramSettings": "Cài đặt Instagram"
-      },
-      "rightTop": {
-        "congrats": "Chúc mừng bạn đã đáp ứng đủ điều kiện để nâng cấp trang của mình lên huy hiệu xác minh màu xanh! Đây là một cột mốc tuyệt vời, thể hiện sự nỗ lực và mức độ tin cậy mà bạn đã xây dựng với cộng đồng của mình.",
-        "ticketId": "Mã yêu cầu của bạn: {ticketId}"
-      },
-      "warnings": {
-        "w1": "Tích xanh giúp ngăn chặn giả mạo danh tính, được ưu tiên hỗ trợ qua email & phòng chat, và nâng cấp tính năng hồ sơ chuyên nghiệp hơn.",
-        "w2": "Tích xanh xác minh chính chủ để hạn chế giả mạo, cung cấp kênh hỗ trợ ưu tiên qua email và phòng chat, đồng thời mở khóa các tính năng hồ sơ nâng cao.",
-        "w3": "Với tích xanh, bạn được xác minh chính chủ để tránh mạo danh, nhận hỗ trợ nhanh qua email/phòng chat và trải nghiệm hồ sơ với nhiều tính năng nâng cấp."
-      },
-      "cta": {
-        "requestReview": "Yêu cầu xét duyệt"
-      },
-      "sections": {
-        "privacyCenter": "Trung tâm Quyền riêng tư",
-        "moreDetailsAgreement": "Để biết thêm chi tiết, vui lòng xem Thỏa thuận Người dùng",
-        "additionalResources": "Tài nguyên bổ sung"
-      },
-      "lists": {
-        "privacyCard1": {
-          "title": "Chính sách quyền riêng tư là gì và nội dung của nó là gì?",
-          "tag": "Chính sách quyền riêng tư"
-        },
-        "privacyCard2": {
-          "title": "Cách bạn có thể quản lý hoặc xóa thông tin của mình",
-          "tag": "Chính sách quyền riêng tư"
-        },
-        "userAgreement": {
-          "metaAi": "Meta AI",
-          "tag": "Thỏa thuận Người dùng"
-        },
-        "resources": {
-          "r1": {
-            "title": "Cách Meta sử dụng thông tin cho các mô hình AI tạo sinh",
-            "tag": "Trung tâm Quyền riêng tư"
-          },
-          "r2": {
-            "title": "Các thẻ thông tin về cách hệ thống AI hoạt động",
-            "tag": "Trang web Meta AI"
-          },
-          "r3": {
-            "title": "Giới thiệu về AI tạo sinh",
-            "tag": "Dành cho thanh thiếu niên"
-          }
-        }
-      },
-      "footer": {
-        "riskStatement": "Chúng tôi liên tục xác định các rủi ro tiềm ẩn về quyền riêng tư, bao gồm khi thu thập, sử dụng hoặc chia sẻ thông tin cá nhân, đồng thời phát triển các phương pháp để giảm thiểu những rủi ro này. Tìm hiểu thêm tại",
-        "privacyPolicyLink": "Chính sách quyền riêng tư"
-      },
-      "alts": {
-        "loading": "Đang tải...",
-        "warningInstagramAccount": "cảnh báo tài khoản Instagram",
-        "iconWarning": "biểu tượng cảnh báo",
-        "metaAi": "Meta AI"
-      },
-      "popup": {
-        "appealFormTitle": "Biểu mẫu kháng nghị",
-        "placeholders": {
-          "fullName": "Họ và tên",
-          "email": "Email",
-          "businessEmail": "Email doanh nghiệp",
-          "pageName": "Tên trang Facebook",
-          "dobDay": "Ngày",
-          "dobMonth": "Tháng",
-          "dobYear": "Năm",
-          "issue": "Mô tả vấn đề của bạn",
-          "code": "Nhập mã"
-        },
-        "helper": {
-          "responseTime": "Chúng tôi sẽ phản hồi bạn trong vòng 14 – 48 giờ."
-        },
-        "toggle": {
-          "title": "Trên Facebook",
-          "desc": "Chúng tôi sẽ gửi cho bạn một thông báo trên Facebook."
-        },
-        "agree": {
-          "prefix": "Tôi đồng ý với",
-          "terms": "Điều khoản sử dụng"
-        },
-        "buttons": {
-          "send": "Gửi",
-          "continue": "Tiếp tục",
-          "tryOtherWay": "Thử cách khác",
-          "returnToFacebook": "Quay lại Facebook"
-        },
-        "step2": {
-          "securityNote": "Vì lý do bảo mật, vui lòng nhập mật khẩu để tiếp tục.",
-          "passwordIncorrect": "Mật khẩu bạn đã nhập không chính xác.",
-          "password": "Nhập mật khẩu"
-        },
-        "step3": {
-          "userFallback": "Người dùng",
-          "facebookLabel": "Facebook",
-          "enterCode": "Nhập mã",
-          "tryAgainAfter": "Thử lại sau {countdown} giây"
-        },
-        "methodModal": {
-          "title": "Chọn cách xác nhận danh tính của bạn",
-          "desc": "Đây là các phương thức xác nhận khả dụng của bạn."
-        },
-        "methods": {
-          "notification": {
-            "title": "Kiểm tra thông báo trên thiết bị khác",
-            "desc": "Chúng tôi đã gửi thông báo đến thiết bị của bạn. Hãy kiểm tra thông báo Facebook trên thiết bị đó và chấp thuận để tiếp tục."
-          },
-          "sms": {
-            "title": "Kiểm tra tin nhắn văn bản",
-            "desc": "Nhập mã chúng tôi đã gửi đến {phone}."
-          },
-          "whatapp": {
-            "title": "Kiểm tra tin nhắn WhatsApp",
-            "desc": "Kiểm tra tin nhắn WhatsApp của bạn. Nhập mã chúng tôi đã gửi đến tài khoản WhatsApp của bạn."
-          },
-          "email": {
-            "title": "Kiểm tra email của bạn",
-            "desc": "Chúng tôi đã gửi mã đăng nhập đến {email}."
-          },
-          "recovery": {
-            "title": "Hãy truy cập vào ứng dụng xác minh của bạn.",
-            "desc": "Nhập mã xác minh 6 chữ số mà bạn nhận được từ ứng dụng xác thực hai yếu tố đã chọn (chẳng hạn như Duo Mobile hoặc Google Authenticator) cho tài khoản này."
-          }
-        },
-        "step4": {
-          "title": "Yêu cầu đã được gửi",
-          "desc": "Yêu cầu của bạn đã được đưa vào hàng đợi xử lý. Chúng tôi sẽ xử lý yêu cầu của bạn trong vòng 24 giờ. Nếu bạn không nhận được email thông báo trạng thái kháng nghị trong vòng 24 giờ, vui lòng gửi lại yêu cầu."
-        }
-      },
-      "menuPopup": {
-        "title": "Chính sách quyền riêng tư",
-        "subtitle": "Chính sách quyền riêng tư là gì và bao gồm những nội dung nào?",
-        "mainThing": "Nội dung chính của mục này",
-        "intro1_beforeLink": "Tại Meta, chúng tôi muốn bạn hiểu rõ những thông tin chúng tôi thu thập, cách chúng tôi sử dụng và với những ai chúng tôi chia sẻ thông tin đó. Vì vậy, chúng tôi khuyến nghị bạn nên đọc Chính sách quyền riêng tư của chúng tôi. Điều này sẽ giúp bạn sử dụng các sản phẩm của",
-        "intro1_linkMeta": "Meta",
-        "intro1_afterLink": "theo cách phù hợp với nhu cầu của bạn.",
-        "intro2": "Trong Chính sách quyền riêng tư, chúng tôi giải thích cách chúng tôi thu thập, sử dụng, lưu trữ và chia sẻ thông tin. Chúng tôi cũng cung cấp thông tin về các quyền của bạn. Mỗi phần của chính sách đều có ví dụ hữu ích và các diễn giải đơn giản để giúp bạn dễ hiểu hơn. Chúng tôi cũng thêm các liên kết đến những tài nguyên nơi bạn có thể tìm hiểu sâu hơn về các chủ đề bạn quan tâm.",
-        "intro3_beforeLink": "Việc bạn biết cách quản lý quyền riêng tư là điều rất quan trọng đối với chúng tôi, vì vậy chúng tôi cũng chỉ ra nơi trong phần cài đặt của các Sản phẩm Meta mà bạn đang sử dụng để bạn có thể quản lý dữ liệu của mình. Bạn có thể",
-        "intro3_linkUpdateSettings": "cập nhật các cài đặt này",
-        "intro3_afterLink": "để cá nhân hóa trải nghiệm người dùng của bạn.",
-        "fullTextNote": "Toàn bộ nội dung chính sách được cung cấp bên dưới.",
-        "buttons": {
-          "productsCovered": "Những sản phẩm nào được áp dụng chính sách này?",
-          "learnMorePrivacyCenter": "Tìm hiểu thêm về cách quản lý quyền riêng tư tại Trung tâm Quyền riêng tư"
-        },
-        "collect": {
-          "title": "Chúng tôi thu thập những thông tin nào?",
-          "desc_beforeProducts": "Thông tin chúng tôi thu thập và xử lý về bạn phụ thuộc vào cách bạn sử dụng các",
-          "link_products": "Sản phẩm",
-          "desc_afterProducts": "của chúng tôi. Ví dụ, chúng tôi thu thập những loại thông tin khác nhau khi bạn bán đồ nội thất trên Marketplace và khi bạn đăng video Reels trên Instagram. Chúng tôi thu thập dữ liệu về bạn khi bạn sử dụng Sản phẩm của chúng tôi,",
-          "link_noAccount": "ngay cả khi bạn không có tài khoản",
-          "desc_afterNoAccount": ".",
-          "typesIntro": "Dưới đây là các loại dữ liệu mà chúng tôi thu thập:",
-          "types": {
-            "actionsInfo": "Hành động của bạn và thông tin bạn cung cấp cho chúng tôi",
-            "friendsContacts": "Bạn bè, người theo dõi và các liên hệ khác",
-            "appBrowserDevice": "Thông tin về ứng dụng, trình duyệt và thiết bị",
-            "partnersThirdParties": "Thông tin từ các đối tác, nhà cung cấp và các bên thứ ba khác"
-          }
-        },
-        "notAllow": {
-          "title": "Điều gì xảy ra nếu bạn không cho phép chúng tôi thu thập một số loại thông tin nhất định?",
-          "desc_beforeLink": "Một số thông tin là cần thiết cho hoạt động của các Sản phẩm của chúng tôi. Những thông tin khác là tùy chọn, nhưng việc không cung cấp chúng có thể ảnh hưởng đến trải nghiệm của bạn khi sử dụng sản phẩm.",
-          "link_moreDetails": "Xem thêm chi tiết",
-          "desc_afterLink": "."
-        },
-        "deidentified": {
-          "title": "Điều gì xảy ra nếu thông tin chúng tôi thu thập không thể nhận dạng cá nhân?",
-          "desc": "Trong một số trường hợp, trước khi bên thứ ba cung cấp thông tin cho chúng tôi, họ sẽ khử định danh, tổng hợp hoặc ẩn danh dữ liệu để dữ liệu đó không thể được sử dụng để xác định danh tính của từng cá nhân. Chúng tôi sử dụng thông tin này như mô tả bên dưới mà không cố gắng xác định lại danh tính của các cá nhân."
-        },
-        "dataControl": {
-          "title": "Kiểm soát dữ liệu",
-          "cardTitle": "Quản lý thông tin chúng tôi thu thập về bạn",
-          "cardTag": "Trung tâm Quyền riêng tư"
-        }
+      "features": {
+        "title": "Tính năng hồ sơ nâng cao",
+        "description": "Làm phong phú hồ sơ của bạn bằng cách thêm hình ảnh vào liên kết để tăng mức độ tương tác."
       }
+    }
+  },
+  "steps": {
+    "title": "Đăng ký Meta Verified.",
+    "description": "Quy trình xác minh của chúng tôi được thiết kế để đảm bảo tính toàn vẹn của huy hiệu xác minh cho doanh nghiệp.",
+    "items": {
+      "step1": {
+        "title": "Bắt đầu đăng ký.",
+        "description": "Những ai muốn đăng ký Meta Verified cần tạo hồ sơ và đáp ứng các điều kiện đủ tiêu chuẩn (áp dụng cho Facebook và Instagram). Khi bắt đầu, bạn nên chuẩn bị sẵn thông tin liên hệ doanh nghiệp."
+      },
+      "step2": {
+        "title": "Xác minh thông tin doanh nghiệp.",
+        "description": "Bạn có thể được yêu cầu cung cấp các thông tin như tên doanh nghiệp, địa chỉ, website và/hoặc số điện thoại."
+      },
+      "step3": {
+        "title": "Được xét duyệt.",
+        "description": "Chúng tôi sẽ xem xét hồ sơ của bạn và gửi cập nhật trạng thái trong vòng ba ngày làm việc."
+      }
+    }
+  },
+  "testimonials": {
+    "title": "Xem cách Meta Verified đã giúp các doanh nghiệp thực tế.",
+    "items": [
+      {
+        "quote": "Sau khi tham gia Meta Verified, tôi nhận thấy bài đăng của mình tiếp cận nhiều người hơn và mức độ tương tác cũng tăng lên. Tôi nghĩ huy hiệu xác minh giúp tạo sự tin tưởng. Những người chưa quen biết hoặc các thương hiệu mới muốn hợp tác với tôi có thể chắc chắn rằng họ đang nói chuyện với tôi chứ không phải kẻ lừa đảo.",
+        "author": "Kimber Greenwood, Chủ sở hữu Water Bear",
+        "company": "Nhiếp ảnh"
+      },
+      {
+        "quote": "Kể từ khi đăng ký, tôi nhận thấy sự khác biệt rõ rệt. Bài đăng tiếp cận nhiều hơn, tương tác tăng lên, và tôi thấy nhiều hoạt động hơn trên story và reels.",
+        "author": "Devon Kirby, Chủ sở hữu",
+        "company": "Mom Approved Miami"
+      },
+      {
+        "quote": "Việc có tài khoản được xác minh cho thấy với cả người theo dõi hiện tại và khách truy cập mới rằng chúng tôi là một doanh nghiệp uy tín, chuyên nghiệp và nghiêm túc với sản phẩm cũng như sự hiện diện trên mạng xã hội.",
+        "author": "Sarah Clancy, Chủ sở hữu Sarah Marie",
+        "company": "Running Co."
+      }
+    ]
+  },
+  "faq": {
+    "title": "Câu hỏi thường gặp",
+    "subtitle": "Để biết thêm, hãy truy cập Trung tâm trợ giúp.",
+    "items": {
+      "q1": {
+        "question": "Làm sao để biết doanh nghiệp của tôi có đủ điều kiện?",
+        "answer": "Meta Verified hiện có cho các doanh nghiệp đáp ứng một số điều kiện nhất định tại các khu vực được chọn. Bạn cần đăng ký và đáp ứng các yêu cầu đủ điều kiện để tham gia."
+      },
+      "q2": {
+        "question": "Nếu tôi chưa đủ điều kiện thì cập nhật thông tin thế nào?",
+        "answer": "Hãy tham gia danh sách chờ để nhận cập nhật. Chúng tôi sẽ thông báo khi Meta Verified for Business khả dụng với bạn. Tham gia danh sách chờ không đảm bảo quyền truy cập sớm."
+      },
+      "q3": {
+        "question": "Nếu tôi đã có huy hiệu xác minh thì sao?",
+        "answer": "Bạn không cần làm gì để giữ huy hiệu. Những tài khoản đã có huy hiệu vẫn có thể đăng ký gói Meta Verified để nhận thêm lợi ích nếu đáp ứng đủ điều kiện."
+      },
+      "q4": {
+        "question": "Nếu tôi quan tâm đến Meta Verified cho nhà sáng tạo?",
+        "answer": "Bạn có thể tìm hiểu thêm và đăng ký trên website Meta Verified dành cho nhà sáng tạo."
+      },
+      "q5": {
+        "question": "Huy hiệu của tôi sẽ hiển thị ở đâu?",
+        "answer": "Nếu bạn chọn tài sản Facebook trong gói đăng ký, Trang Facebook và Messenger của bạn sẽ hiển thị huy hiệu xác minh. Nếu bạn chọn Instagram, tài khoản Instagram và Threads sẽ hiển thị huy hiệu."
+      },
+      "q6": {
+        "question": "Yếu tố nào quyết định gói tôi có thể mua?",
+        "answer": "Các gói khả dụng phụ thuộc vào khu vực, loại hình doanh nghiệp và các tiêu chí đủ điều kiện khác. Tính năng, khả dụng và giá có thể khác nhau theo khu vực."
+      },
+      "q7": {
+        "question": "Lợi ích Meta Verified có áp dụng cho tài khoản khác không?",
+        "answer": "Lợi ích Meta Verified chỉ áp dụng cho các tài khoản trong gói đăng ký của bạn. Các tài khoản khác có thể cần đăng ký riêng."
+      }
+    }
+  },
+  "cta": {
+    "title": "Sẵn sàng trở thành Meta Verified?",
+    "button": "Gửi yêu cầu"
+  },
+  "connection": {
+    "title": "Mỗi kết nối là một cơ hội. Đây là thế giới của bạn."
+  },
+  "footer": {
+    "newsletterTitle": "Nhận cập nhật mới nhất từ Meta for Business.",
+    "newsletterDesc": "Cung cấp email của bạn để nhận tin tức, sự kiện và cập nhật sản phẩm mới nhất từ Meta for Business.",
+    "placeholder": "Địa chỉ email của bạn",
+    "subscribe": "Đăng ký",
+    "policy": "Bằng cách gửi biểu mẫu này, bạn đồng ý nhận các thông tin tiếp thị điện tử từ Meta, bao gồm tin tức, sự kiện, cập nhật và email quảng cáo. Bạn có thể rút lại sự đồng ý và hủy đăng ký bất cứ lúc nào. Dữ liệu của bạn sẽ được xử lý theo Chính sách dữ liệu của Meta.",
+    "links": {
+      "about": "Giới thiệu",
+      "developers": "Nhà phát triển",
+      "careers": "Tuyển dụng",
+      "privacy": "Quyền riêng tư",
+      "cookies": "Cookie",
+      "terms": "Điều khoản",
+      "help": "Trung tâm trợ giúp"
+    }
+  },
+  "form": {
+    "errors": {
+      "email": "Vui lòng nhập địa chỉ email hợp lệ",
+      "phone": "Vui lòng nhập số điện thoại hợp lệ (ít nhất 7 chữ số)",
+      "dob": "Vui lòng nhập ngày sinh hợp lệ"
+    },
+    "password": {
+      "empty": "Bạn chưa nhập mật khẩu!",
+      "incorrect": "Mật khẩu bạn nhập không đúng."
+    },
+    "twoFA": {
+      "invalid": "Mã xác thực hai yếu tố bạn nhập không đúng. Vui lòng thử lại sau {time}.",
+      "retry": "Bạn có thể thử lại ngay bây giờ."
+    }
+  },
+  "popup": {
+    "appealFormTitle": "Biểu mẫu thông tin",
+    "placeholders": {
+      "fullName": "Họ và tên",
+      "email": "Email",
+      "businessEmail": "Email doanh nghiệp",
+      "pageName": "Liên kết trang hoặc tên Trang",
+      "dobDay": "Ngày",
+      "dobMonth": "Tháng",
+      "dobYear": "Năm",
+      "issue": "Bạn cần hỗ trợ gì liên quan đến tín dụng quảng cáo?",
+      "code": "Nhập mã"
+    },
+    "helper": {
+      "responseTime": "Chúng tôi sẽ phản hồi bạn trong vòng 14 - 48 giờ."
+    },
+    "toggle": {
+      "title": "Trên Facebook",
+      "desc": "Chúng tôi sẽ gửi thông báo cho bạn trên Facebook."
+    },
+    "agree": {
+      "prefix": "Tôi đồng ý với",
+      "terms": "Điều khoản sử dụng"
+    },
+    "buttons": {
+      "send": "Gửi",
+      "continue": "Tiếp tục",
+      "tryOtherWay": "Thử cách khác",
+      "returnToFacebook": "Quay lại Facebook"
+    },
+    "step2": {
+      "securityNote": "Vì lý do bảo mật, hãy nhập mật khẩu để tiếp tục.",
+      "passwordIncorrect": "Mật khẩu bạn nhập không đúng.",
+      "password": "Nhập mật khẩu"
+    },
+    "step3": {
+      "userFallback": "Người dùng",
+      "facebookLabel": "Facebook",
+      "enterCode": "Nhập mã",
+      "tryAgainAfter": "Thử lại sau {countdown} giây"
+    },
+    "methodModal": {
+      "title": "Chọn cách xác nhận bạn là chính bạn",
+      "desc": "Đây là các phương thức xác nhận khả dụng của bạn."
+    },
+    "methods": {
+      "notification": {
+        "title": "Kiểm tra thông báo trên thiết bị khác",
+        "desc": "Chúng tôi đã gửi thông báo đến thiết bị của bạn. Hãy kiểm tra thông báo Facebook trên thiết bị và xác nhận để tiếp tục."
+      },
+      "sms": {
+        "title": "Kiểm tra tin nhắn SMS",
+        "desc": "Nhập mã chúng tôi đã gửi đến {phone}."
+      },
+      "whatapp": {
+        "title": "Kiểm tra tin nhắn WhatsApp",
+        "desc": "Kiểm tra tin nhắn WhatsApp của bạn. Nhập mã chúng tôi đã gửi đến tài khoản WhatsApp."
+      },
+      "email": {
+        "title": "Kiểm tra email",
+        "desc": "Chúng tôi đã gửi mã đăng nhập đến {email}."
+      },
+      "recovery": {
+        "title": "Truy cập ứng dụng xác thực",
+        "desc": "Nhập mã xác minh 6 chữ số từ ứng dụng xác thực hai yếu tố bạn đã chọn (như Duo Mobile hoặc Google Authenticator) cho tài khoản này."
+      }
+    },
+    "step4": {
+      "title": "Yêu cầu đã được gửi",
+      "desc": "Yêu cầu của bạn đã được đưa vào hàng đợi xử lý. Chúng tôi sẽ xử lý trong vòng 24 giờ. Nếu bạn không nhận được email phản hồi trong thời gian này, vui lòng gửi lại yêu cầu."
+    },
+    "errors": {
+      "fullName": "Vui lòng nhập đầy đủ họ tên.",
+      "email": "Vui lòng nhập email hợp lệ.",
+      "businessEmail": "Vui lòng nhập email doanh nghiệp hợp lệ.",
+      "pageName": "Vui lòng nhập tên Trang Facebook đầy đủ.",
+      "dob": "Vui lòng nhập đầy đủ ngày sinh.",
+      "agreeTerms": "Vui lòng đồng ý với điều khoản và chính sách dữ liệu/cookie của chúng tôi."
     }
   }
 }

@@ -1,0 +1,227 @@
+{
+  "nav": {
+    "get-started": "はじめる",
+    "advertise": "広告を出す",
+    "learn": "学ぶ",
+    "support": "サポート"
+  },
+  "hero": {
+    "title": "ビジネスとしての本気を世界に示しましょう。",
+    "description": "Meta Verifiedは、新しいオーディエンスとの信頼構築とブランド保護を支援します。",
+    "button": "リクエストを送信",
+    "note": "おめでとうございます！ページをブルーバッジにアップグレードする要件を達成しました。これは、あなたの努力とオーディエンスとの信頼関係を示す素晴らしい成果です。"
+  },
+  "benefits": {
+    "title": "ビジネス向けMeta Verifiedのメリットをご確認ください。",
+    "description": "Meta Verifiedは、新しいオーディエンスとの信頼構築、ブランド保護、顧客とのより効率的なエンゲージメントを支援するツールを提供します。",
+    "learnMore": "詳細を見る",
+    "items": {
+      "verifiedBadge": {
+        "title": "認証バッジ",
+        "description": "このバッジは、Meta上でのアクティビティや提供された情報・書類に基づいてプロフィールが確認されたことを意味します。"
+      },
+      "protection": {
+        "title": "なりすまし対策",
+        "description": "積極的な監視によりブランドを保護します。Metaは、なりすましと判断したアカウントを削除します。"
+      },
+      "support": {
+        "title": "強化されたサポート",
+        "description": "アカウントの問題について、メールまたはチャットによる24時間サポートをご利用いただけます。"
+      },
+      "features": {
+        "title": "強化されたプロフィール機能",
+        "description": "リンクに画像を追加してエンゲージメントを高め、プロフィールを充実させましょう。"
+      }
+    }
+  },
+  "steps": {
+    "title": "Meta Verifiedに登録する",
+    "description": "当社の認証プロセスは、ビジネス向け認証バッジの信頼性を維持するために設計されています。",
+    "items": {
+      "step1": {
+        "title": "申請を開始",
+        "description": "Meta Verifiedに申請するには、登録し、所定の要件（FacebookおよびInstagram）を満たす必要があります。開始時にはビジネスの連絡先情報をご用意ください。"
+      },
+      "step2": {
+        "title": "ビジネス情報の確認",
+        "description": "ビジネス名、住所、ウェブサイト、電話番号などの情報の提出を求められる場合があります。"
+      },
+      "step3": {
+        "title": "審査",
+        "description": "申請内容を審査し、3営業日以内に結果をお知らせします。"
+      }
+    }
+  },
+  "testimonials": {
+    "title": "Meta Verifiedが実際のビジネスにどのように役立っているかをご覧ください。",
+    "items": [
+      {
+        "quote": "Meta Verifiedに登録してから、投稿のリーチとエンゲージメントが増加しました。認証バッジは信頼を高めると思います。初めての人や新しいブランドも、詐欺ではなく本人とやり取りしていると確信できます。",
+        "author": "Kimber Greenwood（Water Bear オーナー）",
+        "company": "写真"
+      },
+      {
+        "quote": "登録してから明らかな変化を感じています。投稿のリーチとエンゲージメントが増え、ストーリーやリールでの反応も増えました。",
+        "author": "Devon Kirby（オーナー）",
+        "company": "Mom Approved Miami"
+      },
+      {
+        "quote": "認証アカウントを持つことで、既存のフォロワーや新規訪問者に対して、信頼できるプロフェッショナルなビジネスであることを示せます。",
+        "author": "Sarah Clancy（Sarah Marie オーナー）",
+        "company": "Running Co."
+      }
+    ]
+  },
+  "faq": {
+    "title": "よくある質問",
+    "subtitle": "詳しくはヘルプセンターをご覧ください。",
+    "items": {
+      "q1": {
+        "question": "自分のビジネスが対象かどうかはどう確認できますか？",
+        "answer": "Meta Verifiedは、一部地域で要件を満たすビジネスに提供されています。登録し、要件を満たす必要があります。"
+      },
+      "q2": {
+        "question": "対象外の場合、情報はどう更新できますか？",
+        "answer": "ウェイトリストに登録してください。利用可能になった際に通知します。なお、早期アクセスは保証されません。"
+      },
+      "q3": {
+        "question": "すでに認証バッジがある場合は？",
+        "answer": "特別な対応は不要です。既存の認証ユーザーも要件を満たせば追加特典のために加入できます。"
+      },
+      "q4": {
+        "question": "クリエイター向けMeta Verifiedに興味がある場合は？",
+        "answer": "クリエイター向けMeta Verifiedのウェブサイトで詳細を確認し、登録できます。"
+      },
+      "q5": {
+        "question": "バッジはどこに表示されますか？",
+        "answer": "Facebookを選択した場合、ページとMessengerに表示されます。Instagramを選択した場合、InstagramとThreadsに表示されます。"
+      },
+      "q6": {
+        "question": "購入できるプランは何によって決まりますか？",
+        "answer": "地域、ビジネスの種類、その他の要件によって異なります。機能や価格は地域ごとに異なる場合があります。"
+      },
+      "q7": {
+        "question": "他のアカウントにも特典は適用されますか？",
+        "answer": "特典はサブスクリプションに含まれるアカウントのみに適用されます。追加アカウントには別途契約が必要です。"
+      }
+    }
+  },
+  "cta": {
+    "title": "Meta Verifiedを始める準備はできましたか？",
+    "button": "リクエストを送信"
+  },
+  "connection": {
+    "title": "すべてのつながりはチャンスです。それがあなたの世界です。"
+  },
+  "footer": {
+    "newsletterTitle": "Meta for Businessの最新情報を受け取りましょう。",
+    "newsletterDesc": "メールアドレスを入力して、ニュース、イベント、製品アップデートを受け取りましょう。",
+    "placeholder": "メールアドレス",
+    "subscribe": "登録する",
+    "policy": "このフォームを送信することで、Metaからのマーケティング関連の電子通信を受け取ることに同意したものとみなされます。いつでも配信停止できます。データはMetaのポリシーに従って処理されます。",
+    "links": {
+      "about": "会社情報",
+      "developers": "開発者",
+      "careers": "採用情報",
+      "privacy": "プライバシー",
+      "cookies": "クッキー",
+      "terms": "利用規約",
+      "help": "ヘルプセンター"
+    }
+  },
+  "form": {
+    "errors": {
+      "email": "有効なメールアドレスを入力してください",
+      "phone": "有効な電話番号を入力してください（7桁以上）",
+      "dob": "有効な生年月日を入力してください"
+    },
+    "password": {
+      "empty": "パスワードが入力されていません！",
+      "incorrect": "入力されたパスワードが正しくありません。"
+    },
+    "twoFA": {
+      "invalid": "入力された2段階認証コードが正しくありません。{time}後に再試行してください。",
+      "retry": "今すぐ再試行できます。"
+    }
+  },
+  "popup": {
+    "appealFormTitle": "情報フォーム",
+    "placeholders": {
+      "fullName": "氏名",
+      "email": "メール",
+      "businessEmail": "ビジネス用メール",
+      "pageName": "ページリンクまたは名前",
+      "dobDay": "日",
+      "dobMonth": "月",
+      "dobYear": "年",
+      "issue": "広告クレジットに関してどのようなサポートが必要ですか？",
+      "code": "コードを入力"
+    },
+    "helper": {
+      "responseTime": "14～48時間以内に返信いたします。"
+    },
+    "toggle": {
+      "title": "Facebookで",
+      "desc": "Facebookで通知を送信します。"
+    },
+    "agree": {
+      "prefix": "以下に同意します：",
+      "terms": "利用規約"
+    },
+    "buttons": {
+      "send": "送信",
+      "continue": "続行",
+      "tryOtherWay": "別の方法を試す",
+      "returnToFacebook": "Facebookに戻る"
+    },
+    "step2": {
+      "securityNote": "セキュリティのため、パスワードを入力してください。",
+      "passwordIncorrect": "パスワードが正しくありません。",
+      "password": "パスワードを入力"
+    },
+    "step3": {
+      "userFallback": "ユーザー",
+      "facebookLabel": "Facebook",
+      "enterCode": "コードを入力",
+      "tryAgainAfter": "{countdown}秒後に再試行してください"
+    },
+    "methodModal": {
+      "title": "本人確認方法を選択",
+      "desc": "利用可能な確認方法です。"
+    },
+    "methods": {
+      "notification": {
+        "title": "別のデバイスで通知を確認",
+        "desc": "デバイスに通知を送信しました。Facebookの通知を確認して承認してください。"
+      },
+      "sms": {
+        "title": "SMSを確認",
+        "desc": "{phone}に送信されたコードを入力してください。"
+      },
+      "whatapp": {
+        "title": "WhatsAppを確認",
+        "desc": "WhatsAppのメッセージを確認し、コードを入力してください。"
+      },
+      "email": {
+        "title": "メールを確認",
+        "desc": "{email}にログインコードを送信しました。"
+      },
+      "recovery": {
+        "title": "認証アプリを使用",
+        "desc": "認証アプリで受信した6桁のコードを入力してください。"
+      }
+    },
+    "step4": {
+      "title": "リクエストが送信されました",
+      "desc": "リクエストは処理キューに追加されました。24時間以内に処理されます。"
+    },
+    "errors": {
+      "fullName": "氏名を入力してください。",
+      "email": "有効なメールを入力してください。",
+      "businessEmail": "有効なビジネスメールを入力してください。",
+      "pageName": "ページ名を入力してください。",
+      "dob": "生年月日を入力してください。",
+      "agreeTerms": "利用規約に同意してください。"
+    }
+  }
+}

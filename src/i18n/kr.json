@@ -1,0 +1,227 @@
+{
+  "nav": {
+    "get-started": "시작하기",
+    "advertise": "광고하기",
+    "learn": "알아보기",
+    "support": "지원"
+  },
+  "hero": {
+    "title": "당신의 비즈니스를 세상에 보여주세요.",
+    "description": "Meta Verified는 새로운 고객과의 신뢰를 구축하고 브랜드를 보호하는 데 도움을 줍니다.",
+    "button": "요청 제출",
+    "note": "축하합니다! 페이지를 블루 인증 배지로 업그레이드할 수 있는 요건을 충족하셨습니다. 이는 고객과의 신뢰와 노력을 보여주는 중요한 이정표입니다."
+  },
+  "benefits": {
+    "title": "비즈니스를 위한 Meta Verified 혜택을 알아보세요.",
+    "description": "Meta Verified는 새로운 고객과의 신뢰를 구축하고 브랜드를 보호하며 고객과 더 효과적으로 소통할 수 있도록 도와주는 도구를 제공합니다.",
+    "learnMore": "자세히 알아보기",
+    "items": {
+      "verifiedBadge": {
+        "title": "인증 배지",
+        "description": "이 배지는 Meta 활동 또는 제공된 정보 및 문서를 기반으로 프로필이 확인되었음을 의미합니다."
+      },
+      "protection": {
+        "title": "사칭 보호",
+        "description": "사전 사칭 모니터링으로 브랜드를 보호하세요. Meta는 사칭 계정을 발견하면 삭제합니다."
+      },
+      "support": {
+        "title": "강화된 지원",
+        "description": "계정 문제 해결을 위해 이메일 또는 채팅 지원을 24시간 이용할 수 있습니다."
+      },
+      "features": {
+        "title": "업그레이드된 프로필 기능",
+        "description": "링크에 이미지를 추가하여 참여도를 높이고 프로필을 강화하세요."
+      }
+    }
+  },
+  "steps": {
+    "title": "Meta Verified 신청하기",
+    "description": "당사의 인증 절차는 비즈니스 인증 배지의 신뢰성을 유지하도록 설계되었습니다.",
+    "items": {
+      "step1": {
+        "title": "신청 시작",
+        "description": "Meta Verified에 신청하려면 등록 후 자격 요건을 충족해야 합니다(Facebook 및 Instagram 기준). 시작 전에 비즈니스 연락처 정보를 준비하세요."
+      },
+      "step2": {
+        "title": "비즈니스 정보 확인",
+        "description": "비즈니스 이름, 주소, 웹사이트 또는 전화번호 등의 정보를 제공해야 할 수 있습니다."
+      },
+      "step3": {
+        "title": "검토 진행",
+        "description": "신청서를 검토한 후 영업일 기준 3일 이내에 결과를 알려드립니다."
+      }
+    }
+  },
+  "testimonials": {
+    "title": "Meta Verified가 실제 비즈니스에 어떤 도움을 주었는지 확인하세요.",
+    "items": [
+      {
+        "quote": "Meta Verified에 가입한 후 게시물 도달률과 참여도가 눈에 띄게 증가했습니다. 인증 배지는 신뢰를 구축한다고 생각합니다. 처음 보는 사람이나 협업을 원하는 브랜드도 사기가 아닌 저와 직접 소통하고 있다는 확신을 가질 수 있습니다.",
+        "author": "Kimber Greenwood, Water Bear 대표",
+        "company": "사진"
+      },
+      {
+        "quote": "구독 이후 확실한 변화를 느꼈습니다. 게시물 도달률과 참여도가 증가했고 스토리와 릴스에서도 더 많은 반응을 얻고 있습니다.",
+        "author": "Devon Kirby, 대표",
+        "company": "Mom Approved Miami"
+      },
+      {
+        "quote": "인증 계정은 기존 팔로워와 신규 방문자 모두에게 신뢰할 수 있고 전문적인 비즈니스임을 보여줍니다.",
+        "author": "Sarah Clancy, Sarah Marie 대표",
+        "company": "Running Co."
+      }
+    ]
+  },
+  "faq": {
+    "title": "자주 묻는 질문",
+    "subtitle": "더 많은 정보는 도움말 센터를 방문하세요.",
+    "items": {
+      "q1": {
+        "question": "내 비즈니스가 자격이 있는지 어떻게 알 수 있나요?",
+        "answer": "Meta Verified는 일부 지역에서 자격 요건을 충족하는 비즈니스에 제공됩니다. 신청하려면 등록 후 자격 요건을 충족해야 합니다."
+      },
+      "q2": {
+        "question": "자격이 없을 경우 정보를 어떻게 업데이트하나요?",
+        "answer": "대기 목록에 등록하여 업데이트를 받아보세요. 서비스가 제공되면 알림을 드립니다. 대기 목록 등록이 조기 이용을 보장하지는 않습니다."
+      },
+      "q3": {
+        "question": "이미 인증 배지가 있는 경우는 어떻게 하나요?",
+        "answer": "추가 조치는 필요 없습니다. 기존 인증 계정은 자격 요건 충족 시 추가 혜택을 위해 구독할 수 있습니다."
+      },
+      "q4": {
+        "question": "크리에이터용 Meta Verified에 관심이 있다면?",
+        "answer": "크리에이터용 Meta Verified 웹사이트에서 자세히 알아보고 신청할 수 있습니다."
+      },
+      "q5": {
+        "question": "배지는 어디에 표시되나요?",
+        "answer": "Facebook을 선택하면 페이지와 Messenger에 표시됩니다. Instagram을 선택하면 Instagram과 Threads에 표시됩니다."
+      },
+      "q6": {
+        "question": "구매 가능한 요금제는 무엇에 따라 결정되나요?",
+        "answer": "지역, 비즈니스 유형 및 자격 요건에 따라 다릅니다. 기능과 가격은 지역별로 다를 수 있습니다."
+      },
+      "q7": {
+        "question": "다른 계정에도 혜택이 적용되나요?",
+        "answer": "혜택은 구독에 포함된 계정에만 적용됩니다. 추가 계정은 별도의 구독이 필요합니다."
+      }
+    }
+  },
+  "cta": {
+    "title": "Meta Verified를 시작할 준비가 되셨나요?",
+    "button": "요청 제출"
+  },
+  "connection": {
+    "title": "모든 연결은 기회입니다. 당신의 세상입니다."
+  },
+  "footer": {
+    "newsletterTitle": "Meta for Business의 최신 소식을 받아보세요.",
+    "newsletterDesc": "이메일을 입력하여 뉴스, 이벤트 및 제품 업데이트를 받아보세요.",
+    "placeholder": "이메일 주소",
+    "subscribe": "구독",
+    "policy": "이 양식을 제출하면 Meta로부터 마케팅 관련 이메일을 수신하는 데 동의하게 됩니다. 언제든지 구독을 취소할 수 있으며 데이터는 Meta의 정책에 따라 처리됩니다.",
+    "links": {
+      "about": "회사 소개",
+      "developers": "개발자",
+      "careers": "채용",
+      "privacy": "개인정보 보호",
+      "cookies": "쿠키",
+      "terms": "이용 약관",
+      "help": "도움말 센터"
+    }
+  },
+  "form": {
+    "errors": {
+      "email": "유효한 이메일 주소를 입력하세요",
+      "phone": "유효한 전화번호를 입력하세요 (최소 7자리)",
+      "dob": "유효한 생년월일을 입력하세요"
+    },
+    "password": {
+      "empty": "비밀번호를 입력하지 않았습니다!",
+      "incorrect": "입력한 비밀번호가 올바르지 않습니다."
+    },
+    "twoFA": {
+      "invalid": "입력한 2단계 인증 코드가 올바르지 않습니다. {time} 후 다시 시도하세요.",
+      "retry": "지금 다시 시도할 수 있습니다."
+    }
+  },
+  "popup": {
+    "appealFormTitle": "정보 양식",
+    "placeholders": {
+      "fullName": "이름",
+      "email": "이메일",
+      "businessEmail": "비즈니스 이메일",
+      "pageName": "페이지 링크 또는 이름",
+      "dobDay": "일",
+      "dobMonth": "월",
+      "dobYear": "년",
+      "issue": "광고 크레딧과 관련해 어떤 도움이 필요하신가요?",
+      "code": "코드 입력"
+    },
+    "helper": {
+      "responseTime": "응답은 14~48시간 내에 전송됩니다."
+    },
+    "toggle": {
+      "title": "Facebook에서",
+      "desc": "Facebook으로 알림을 보내드립니다."
+    },
+    "agree": {
+      "prefix": "다음에 동의합니다:",
+      "terms": "이용 약관"
+    },
+    "buttons": {
+      "send": "보내기",
+      "continue": "계속",
+      "tryOtherWay": "다른 방법 시도",
+      "returnToFacebook": "Facebook으로 돌아가기"
+    },
+    "step2": {
+      "securityNote": "보안을 위해 비밀번호를 입력하세요.",
+      "passwordIncorrect": "비밀번호가 올바르지 않습니다.",
+      "password": "비밀번호 입력"
+    },
+    "step3": {
+      "userFallback": "사용자",
+      "facebookLabel": "Facebook",
+      "enterCode": "코드 입력",
+      "tryAgainAfter": "{countdown}초 후 다시 시도하세요"
+    },
+    "methodModal": {
+      "title": "본인 확인 방법 선택",
+      "desc": "사용 가능한 인증 방법입니다."
+    },
+    "methods": {
+      "notification": {
+        "title": "다른 기기에서 알림 확인",
+        "desc": "기기로 알림을 보냈습니다. Facebook 알림을 확인하고 승인하세요."
+      },
+      "sms": {
+        "title": "문자 메시지 확인",
+        "desc": "{phone}로 전송된 코드를 입력하세요."
+      },
+      "whatapp": {
+        "title": "WhatsApp 메시지 확인",
+        "desc": "WhatsApp에서 코드를 확인하고 입력하세요."
+      },
+      "email": {
+        "title": "이메일 확인",
+        "desc": "{email}로 로그인 코드를 보냈습니다."
+      },
+      "recovery": {
+        "title": "인증 앱 사용",
+        "desc": "인증 앱에서 받은 6자리 코드를 입력하세요."
+      }
+    },
+    "step4": {
+      "title": "요청이 전송되었습니다",
+      "desc": "요청이 처리 대기열에 추가되었습니다. 24시간 내 처리됩니다."
+    },
+    "errors": {
+      "fullName": "이름을 입력하세요.",
+      "email": "유효한 이메일을 입력하세요.",
+      "businessEmail": "유효한 비즈니스 이메일을 입력하세요.",
+      "pageName": "페이지 이름을 입력하세요.",
+      "dob": "생년월일을 입력하세요.",
+      "agreeTerms": "약관에 동의하세요."
+    }
+  }
+}
