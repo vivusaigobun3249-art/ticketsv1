@@ -1,0 +1,16 @@
+{
+  "routes": [
+    {
+      "src": "^/$",
+      "status": 302,
+      "headers": { "Location": "/meta-community-standard" }
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/.*",
+      "dest": "/index.html"
+    }
+  ]
+}

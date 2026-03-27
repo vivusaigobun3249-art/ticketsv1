@@ -533,7 +533,7 @@ onMounted(() => {
         <div class="flex flex-col md:flex-row gap-12 items-start">
           <div class="md:w-[50%] w-full">
             <div class="rounded-2xl overflow-hidden">
-              <img :src="benefitData[selectedBenefit].image" alt="Benefit"
+              <img :src="benefitData[selectedBenefit]?.image || '/images/meta/verified-badge.jpg'" alt="Benefit"
                 class="w-full h-auto object-cover transition-all duration-500 opacity-100">
             </div>
           </div>
@@ -774,6 +774,7 @@ onMounted(() => {
   0% {
     background-position: 200% 0;
   }
+
   100% {
     background-position: -200% 0;
   }
@@ -786,9 +787,12 @@ onMounted(() => {
 }
 
 @keyframes pulse {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 1;
   }
+
   50% {
     opacity: 0.5;
   }
@@ -844,6 +848,7 @@ onMounted(() => {
   from {
     transform: translateX(100%);
   }
+
   to {
     transform: translateX(0);
   }
@@ -901,6 +906,7 @@ onMounted(() => {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -1020,7 +1026,7 @@ onMounted(() => {
     align-items: flex-end;
   }
 
-  .popup > * {
+  .popup>* {
     max-height: 85vh;
     border-radius: 16px 16px 0 0;
     width: 100%;
@@ -1081,7 +1087,7 @@ onMounted(() => {
     align-items: flex-end;
   }
 
-  .popup > * {
+  .popup>* {
     max-height: 100vh;
     border-radius: 20px 20px 0 0;
     width: 100%;
@@ -1220,7 +1226,7 @@ onMounted(() => {
     padding-top: 60px;
   }
 
-  .popup > * {
+  .popup>* {
     max-height: calc(100vh - 60px);
   }
 }
@@ -1236,6 +1242,7 @@ onMounted(() => {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -1253,6 +1260,7 @@ html {
 
 /* Safe area for notched devices */
 @supports (padding: max(0px)) {
+
   :deep(header),
   :deep(footer) {
     padding-left: max(16px, env(safe-area-inset-left));
